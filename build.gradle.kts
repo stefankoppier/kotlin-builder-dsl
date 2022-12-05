@@ -28,6 +28,7 @@ tasks.test {
 tasks.jacocoTestReport  {
     reports {
         xml.required.set(true)
+        csv.required.set(true)
     }
 }
 
