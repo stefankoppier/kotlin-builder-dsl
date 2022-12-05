@@ -41,6 +41,21 @@ publishing {
             from(components["kotlin"])
             artifact(tasks.named("sourcesJar").get())
             artifactId  = "kotlin-builder-dsl"
+            pom {
+                name.set("kotlin-builder-dsl")
+                url.set("https://github.com/StefanKoppier/kotlin-builder-dsl")
+                developers {
+                    developer {
+                        id.set("stefankoppier")
+                        name.set("Stefan Koppier")
+                        email.set("stefan.koppier@outlook.com")
+                    }
+                }
+                scm {
+                    connection.set("scm:git:https://github.com/StefanKoppier/kotlin-builder-dsl.git")
+                    url.set("https://github.com/StefanKoppier/kotlin-builder-dsl")
+                }
+            }
         }
     }
 }
