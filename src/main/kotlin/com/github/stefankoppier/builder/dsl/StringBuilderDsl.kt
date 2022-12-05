@@ -3,7 +3,7 @@ package com.github.stefankoppier.builder.dsl
 import com.github.curiousoddman.rgxgen.RgxGen
 import org.slf4j.LoggerFactory
 
-class StringBuilderDsl : BuilderDsl<String> {
+class StringBuilderDsl(private val faker: Faker = Faker()) : BuilderDsl<String> {
 
     private val logger = LoggerFactory.getLogger(StringBuilderDsl::class.java)
 
@@ -26,7 +26,7 @@ class StringBuilderDsl : BuilderDsl<String> {
                 logger.error("Failed to generate regex from '$format' falling back to a random value.", e)
             }
         }
-        return Faker().nextString(min, max)
+        return faker.nextString(min, max)
     }
 
     fun constant(value: String): StringBuilderDsl {

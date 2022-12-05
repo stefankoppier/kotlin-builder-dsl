@@ -1,11 +1,11 @@
 package com.github.stefankoppier.builder.dsl
 
-class FloatBuilderDsl: BuilderDsl<Float> {
+class FloatBuilderDsl(private val faker: Faker = Faker()): BuilderDsl<Float> {
 
     private var constant: Float? = null
 
     override fun invoke(): Float {
-        return constant ?: Faker().nextFloat()
+        return constant ?: faker.nextFloat()
     }
 
     fun constant(value: Float): FloatBuilderDsl {

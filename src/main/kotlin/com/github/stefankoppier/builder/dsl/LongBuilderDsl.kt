@@ -1,6 +1,6 @@
 package com.github.stefankoppier.builder.dsl
 
-class LongBuilderDsl: BuilderDsl<Long> {
+class LongBuilderDsl(private val faker: Faker = Faker()): BuilderDsl<Long> {
 
     private var constant: Long? = null
 
@@ -9,7 +9,7 @@ class LongBuilderDsl: BuilderDsl<Long> {
     private var max = Long.MAX_VALUE
 
     override fun invoke(): Long {
-        return constant ?: Faker().nextLong(min, max)
+        return constant ?: faker.nextLong(min, max)
     }
 
     fun constant(value: Long): LongBuilderDsl {

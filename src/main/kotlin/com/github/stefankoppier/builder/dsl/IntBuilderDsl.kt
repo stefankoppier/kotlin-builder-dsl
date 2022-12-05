@@ -1,6 +1,6 @@
 package com.github.stefankoppier.builder.dsl
 
-class IntBuilderDsl: BuilderDsl<Int> {
+class IntBuilderDsl(private val faker: Faker = Faker()): BuilderDsl<Int> {
 
     private var constant: Int? = null
 
@@ -9,7 +9,7 @@ class IntBuilderDsl: BuilderDsl<Int> {
     private var max = Int.MAX_VALUE
 
     override fun invoke(): Int {
-        return constant ?: Faker().nextInt(min, max)
+        return constant ?: faker.nextInt(min, max)
     }
 
     fun constant(value: Int): IntBuilderDsl {

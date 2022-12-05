@@ -1,11 +1,11 @@
 package com.github.stefankoppier.builder.dsl
 
-class DoubleBuilderDsl: BuilderDsl<Double> {
+class DoubleBuilderDsl(private val faker: Faker = Faker()): BuilderDsl<Double> {
 
     private var constant: Double? = null
 
     override fun invoke(): Double {
-        return constant ?: Faker().nextDouble()
+        return constant ?: faker.nextDouble()
     }
 
     fun constant(value: Double): DoubleBuilderDsl {
