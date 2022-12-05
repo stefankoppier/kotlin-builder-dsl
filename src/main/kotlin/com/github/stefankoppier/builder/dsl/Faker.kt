@@ -29,7 +29,7 @@ class Faker(private val random: Random = Random.Default) {
 
     fun nextChar(): Char {
         val pool = ('a'..'z') + ('A'..'Z') + ('0'..'9')
-        return pool[nextInt(0, pool.size - 1)]
+        return pool[nextInt(0, pool.size)]
     }
 
     fun nextString(min: Int = 0, max: Int = 24): String {
@@ -45,7 +45,7 @@ class Faker(private val random: Random = Random.Default) {
         val options = enumValues<E>()
             .filter(predicate)
 
-        return options[nextInt(0, options.size - 1)]
+        return options[nextInt(0, options.size)]
     }
 
     fun nextLocalDate(): LocalDate {
