@@ -6,6 +6,7 @@ plugins {
     kotlin("jvm") version "1.7.21"
 
     id("maven-publish")
+    id("jacoco")
 }
 
 group = "com.github.stefankoppier"
@@ -14,6 +15,20 @@ version = "0.0.1"
 dependencies {
     implementation("org.slf4j:slf4j-api:2.0.5")
     implementation("com.github.curious-odd-man:rgxgen:1.4")
+
+    testImplementation(kotlin("test"))
+    testImplementation("org.mockito.kotlin:mockito-kotlin:4.1.0")
+}
+
+tasks.test {
+    useJUnitPlatform()
+    finalizedBy(tasks.jacocoTestReport)
+}
+
+tasks.jacocoTestReport  {
+    reports {
+        xml.required.set(true)
+    }
 }
 
 java {

@@ -1,11 +1,12 @@
 package com.github.stefankoppier.builder.dsl
 
-class BooleanBuilderDsl: BuilderDsl<Boolean> {
+class BooleanBuilderDsl(private val faker: Faker = Faker())
+    : BuilderDsl<Boolean> {
 
     private var constant: Boolean? = null
 
     override fun invoke(): Boolean {
-        return constant ?: Faker().nextBoolean()
+        return constant ?: faker.nextBoolean()
     }
 
     fun constant(value: Boolean): BooleanBuilderDsl {
