@@ -1,6 +1,8 @@
-package com.github.stefankoppier.builder.dsl
+package com.github.stefankoppier.builder.dsl.primitives
 
 import com.github.curiousoddman.rgxgen.RgxGen
+import com.github.stefankoppier.builder.dsl.BuilderDsl
+import com.github.stefankoppier.builder.dsl.Faker
 import org.slf4j.LoggerFactory
 
 class StringBuilderDsl(private val faker: Faker = Faker()) : BuilderDsl<String> {

@@ -1,4 +1,7 @@
-package com.github.stefankoppier.builder.dsl
+package com.github.stefankoppier.builder.dsl.primitives
+
+import com.github.stefankoppier.builder.dsl.BuilderDsl
+import com.github.stefankoppier.builder.dsl.Faker
 
 class IntBuilderDsl(private val faker: Faker = Faker()): BuilderDsl<Int> {
 

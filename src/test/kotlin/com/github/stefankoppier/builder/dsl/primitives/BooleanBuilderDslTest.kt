@@ -1,5 +1,6 @@
-package com.github.stefankoppier.builder.dsl
+package com.github.stefankoppier.builder.dsl.primitives
 
+import com.github.stefankoppier.builder.dsl.Faker
 import org.mockito.Mockito.spy
 import org.mockito.kotlin.whenever
 import kotlin.test.Test
