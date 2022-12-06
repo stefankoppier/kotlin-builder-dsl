@@ -20,4 +20,9 @@ class BooleanBuilderDslTest {
     fun constant() {
         assertTrue { BooleanBuilderDsl().constant(true)() }
     }
+
+    @Test
+    fun of() {
+        assertTrue { Boolean.of { constant(true) } }
+    }
 }
