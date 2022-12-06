@@ -2,7 +2,10 @@ package com.github.stefankoppier.builder.dsl
 
 import java.util.*
 
-class ListBuilderDsl<E, B : BuilderDsl<E>>(private val factory: B) : BuilderDsl<List<E>> {
+class ListBuilderDsl<E, B : BuilderDsl<E>>(
+    private val factory: B,
+    private val faker: Faker = Faker()
+) : BuilderDsl<List<E>> {
 
     private var min: Int = 0
 
@@ -11,13 +14,16 @@ class ListBuilderDsl<E, B : BuilderDsl<E>>(private val factory: B) : BuilderDsl<
     private var previous: (B.(E) -> B)? = null
 
     override fun invoke(): List<E> {
-        val result = LinkedList((min..max).map { factory() })
+        val size = 0 until faker.nextInt(min, max)
+
         if (previous != null) {
-            val values = result.mapIndexed { i, _ -> previous?.let { factory.it(result[i - 1])() } }
-            result.addFirst(values[0])
-            return values.map { it!! }
+            val first = factory()
+            val previous = previous!!
+            return (size - 1).fold(mutableListOf(first)) { acc, _ ->
+                acc.with(factory.previous(acc.last())())
+            }
         }
-        return result
+        return size.map { factory() }
     }
 
     fun between(min: Int, max: Int): ListBuilderDsl<E, B> {
@@ -44,4 +50,9 @@ class ListBuilderDsl<E, B : BuilderDsl<E>>(private val factory: B) : BuilderDsl<
         this.previous = transform
         return this
     }
+}
+
+private fun <E> MutableList<E>.with(element: E): MutableList<E> {
+    this.add(element)
+    return this
 }

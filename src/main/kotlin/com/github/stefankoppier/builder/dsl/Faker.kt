@@ -8,11 +8,11 @@ import kotlin.random.Random
 
 class Faker(private val random: Random = Random.Default) {
     fun nextInt(min: Int = Int.MIN_VALUE, max: Int = Int.MAX_VALUE): Int {
-        return random.nextInt(min, max)
+        return if (min == max) min else random.nextInt(min, max)
     }
 
     fun nextLong(min: Long = Long.MIN_VALUE, max: Long = Long.MAX_VALUE): Long {
-        return random.nextLong(min, max)
+        return if (min == max) min else random.nextLong(min, max)
     }
 
     fun nextBoolean(): Boolean {
