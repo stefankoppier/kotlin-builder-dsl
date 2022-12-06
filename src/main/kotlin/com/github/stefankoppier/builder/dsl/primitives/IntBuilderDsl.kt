@@ -21,19 +21,21 @@ class IntBuilderDsl(private val faker: Faker = Faker()) : BuilderDsl<Int> {
     }
 
     fun between(min: Int, max: Int): IntBuilderDsl {
-        require(min >= 0) { "min must be positive, instead '$min' was given" }
-        require(max >= 0) { "max must be positive, instead '$max' was given" }
         require(min <= max) { "min must be less than or equal to max, instead min was '$min' and max was '$max'" }
 
         return min(min).max(max)
     }
 
     fun min(min: Int): IntBuilderDsl {
+        require(min >= 0) { "min must be positive, instead '$min' was given" }
+
         this.min = min
         return this
     }
 
     fun max(max: Int): IntBuilderDsl {
+        require(max >= 0) { "max must be positive, instead '$max' was given" }
+
         this.max = max
         return this
     }
