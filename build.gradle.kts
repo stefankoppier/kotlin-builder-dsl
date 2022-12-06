@@ -63,6 +63,8 @@ publishing {
 
 spotless {
     kotlin {
-        ktfmt().dropboxStyle()
+        ktfmt().dropboxStyle().configure { options ->
+            options.setMaxWidth(120)
+        }
     }
 }

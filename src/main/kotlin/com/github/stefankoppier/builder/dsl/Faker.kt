@@ -34,9 +34,7 @@ class Faker(private val random: Random = Random.Default) {
 
     fun nextString(min: Int = 0, max: Int = 24): String {
         require(min >= 0) { "min must be positive, instead '$min' was given" }
-        require(min <= max) {
-            "min must be less than or equal to max, instead min was '$min' and max was '$max'"
-        }
+        require(min <= max) { "min must be less than or equal to max, instead min was '$min' and max was '$max'" }
 
         return (0..nextInt(min, max)).map { nextChar() }.joinToString(separator = "")
     }

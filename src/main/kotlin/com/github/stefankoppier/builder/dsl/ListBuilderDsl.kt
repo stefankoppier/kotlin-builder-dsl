@@ -2,10 +2,8 @@ package com.github.stefankoppier.builder.dsl
 
 import java.util.*
 
-class ListBuilderDsl<E, B : BuilderDsl<E>>(
-    private val factory: B,
-    private val faker: Faker = Faker()
-) : BuilderDsl<List<E>> {
+class ListBuilderDsl<E, B : BuilderDsl<E>>(private val factory: B, private val faker: Faker = Faker()) :
+    BuilderDsl<List<E>> {
 
     private var min: Int = 0
 
@@ -19,9 +17,7 @@ class ListBuilderDsl<E, B : BuilderDsl<E>>(
         if (previous != null) {
             val first = factory()
             val previous = previous!!
-            return (size - 1).fold(mutableListOf(first)) { acc, _ ->
-                acc.with(factory.previous(acc.last())())
-            }
+            return (size - 1).fold(mutableListOf(first)) { acc, _ -> acc.with(factory.previous(acc.last())()) }
         }
         return size.map { factory() }
     }
@@ -29,9 +25,7 @@ class ListBuilderDsl<E, B : BuilderDsl<E>>(
     fun between(min: Int, max: Int): ListBuilderDsl<E, B> {
         require(min >= 0) { "min must be positive, instead '$min' was given" }
         require(max >= 0) { "max must be positive, instead '$max' was given" }
-        require(min <= max) {
-            "min must be less than or equal to max, instead min was '$min' and max was '$max'"
-        }
+        require(min <= max) { "min must be less than or equal to max, instead min was '$min' and max was '$max'" }
 
         return min(min).max(max)
     }

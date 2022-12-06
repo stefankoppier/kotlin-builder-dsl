@@ -23,9 +23,7 @@ class LongBuilderDsl(private val faker: Faker = Faker()) : BuilderDsl<Long> {
     fun between(min: Long, max: Long): LongBuilderDsl {
         require(min >= 0) { "min must be positive, instead '$min' was given" }
         require(max >= 0) { "max must be positive, instead '$max' was given" }
-        require(min <= max) {
-            "min must be less than or equal to max, instead min was '$min' and max was '$max'"
-        }
+        require(min <= max) { "min must be less than or equal to max, instead min was '$min' and max was '$max'" }
 
         return min(min).max(max)
     }

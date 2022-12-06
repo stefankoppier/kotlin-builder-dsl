@@ -17,7 +17,6 @@ class BigDecimalBuilderDslTest {
 
     @Test
     fun constant() {
-        assertEquals(
-            BigDecimal.valueOf(2.0), BigDecimalBuilderDsl().constant(BigDecimal.valueOf(2.0))())
+        assertEquals(BigDecimal.valueOf(2.0), BigDecimalBuilderDsl().constant(BigDecimal.valueOf(2.0))())
     }
 }

@@ -17,8 +17,6 @@ class BooleanBuilderDsl(private val faker: Faker = Faker()) : BuilderDsl<Boolean
     }
 }
 
-fun Boolean.Companion.of(
-    transform: BooleanBuilderDsl.() -> BooleanBuilderDsl = { BooleanBuilderDsl() }
-): Boolean {
+fun Boolean.Companion.of(transform: BooleanBuilderDsl.() -> BooleanBuilderDsl = { BooleanBuilderDsl() }): Boolean {
     return transform(BooleanBuilderDsl())()
 }

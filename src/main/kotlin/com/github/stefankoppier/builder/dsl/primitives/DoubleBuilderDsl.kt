@@ -17,8 +17,6 @@ class DoubleBuilderDsl(private val faker: Faker = Faker()) : BuilderDsl<Double> 
     }
 }
 
-fun Double.Companion.of(
-    transform: DoubleBuilderDsl.() -> DoubleBuilderDsl = { DoubleBuilderDsl() }
-): Double {
+fun Double.Companion.of(transform: DoubleBuilderDsl.() -> DoubleBuilderDsl = { DoubleBuilderDsl() }): Double {
     return transform(DoubleBuilderDsl())()
 }
