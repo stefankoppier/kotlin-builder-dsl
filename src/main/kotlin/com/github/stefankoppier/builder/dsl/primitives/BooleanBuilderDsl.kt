@@ -3,8 +3,7 @@ package com.github.stefankoppier.builder.dsl.primitives
 import com.github.stefankoppier.builder.dsl.BuilderDsl
 import com.github.stefankoppier.builder.dsl.Faker
 
-class BooleanBuilderDsl(private val faker: Faker = Faker())
-    : BuilderDsl<Boolean> {
+class BooleanBuilderDsl(private val faker: Faker = Faker()) : BuilderDsl<Boolean> {
 
     private var constant: Boolean? = null
 
@@ -18,6 +17,8 @@ class BooleanBuilderDsl(private val faker: Faker = Faker())
     }
 }
 
-fun Boolean.Companion.of(transform: BooleanBuilderDsl.() -> BooleanBuilderDsl = { BooleanBuilderDsl() }): Boolean {
+fun Boolean.Companion.of(
+    transform: BooleanBuilderDsl.() -> BooleanBuilderDsl = { BooleanBuilderDsl() }
+): Boolean {
     return transform(BooleanBuilderDsl())()
 }

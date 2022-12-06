@@ -33,17 +33,16 @@ class Faker(private val random: Random = Random.Default) {
     }
 
     fun nextString(min: Int = 0, max: Int = 24): String {
-        require(min >= 0) { "min must be positive, instead '$min' was given"}
-        require(min <= max) { "min must be less than or equal to max, instead min was '$min' and max was '$max'" }
+        require(min >= 0) { "min must be positive, instead '$min' was given" }
+        require(min <= max) {
+            "min must be less than or equal to max, instead min was '$min' and max was '$max'"
+        }
 
-        return (0..nextInt(min, max))
-            .map { nextChar() }
-            .joinToString(separator = "")
+        return (0..nextInt(min, max)).map { nextChar() }.joinToString(separator = "")
     }
 
     inline fun <reified E : Enum<E>> nextEnum(predicate: (E) -> Boolean = { true }): E {
-        val options = enumValues<E>()
-            .filter(predicate)
+        val options = enumValues<E>().filter(predicate)
 
         return options[nextInt(0, options.size)]
     }

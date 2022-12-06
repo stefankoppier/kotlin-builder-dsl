@@ -25,7 +25,8 @@ class StringBuilderDsl(private val faker: Faker = Faker()) : BuilderDsl<String> 
             try {
                 return RgxGen(format).generate()
             } catch (e: Exception) {
-                logger.error("Failed to generate regex from '$format' falling back to a random value.", e)
+                logger.error(
+                    "Failed to generate regex from '$format' falling back to a random value.", e)
             }
         }
         return faker.nextString(min, max)
@@ -44,9 +45,11 @@ class StringBuilderDsl(private val faker: Faker = Faker()) : BuilderDsl<String> 
     }
 
     fun between(min: Int, max: Int): StringBuilderDsl {
-        require(min >= 0) { "min must be positive, instead '$min' was given"}
-        require(max >= 0) { "max must be positive, instead '$max' was given"}
-        require(min <= max) { "min must be less than or equal to max, instead min was '$min' and max was '$max'" }
+        require(min >= 0) { "min must be positive, instead '$min' was given" }
+        require(max >= 0) { "max must be positive, instead '$max' was given" }
+        require(min <= max) {
+            "min must be less than or equal to max, instead min was '$min' and max was '$max'"
+        }
 
         return min(min).max(max)
     }
@@ -62,6 +65,8 @@ class StringBuilderDsl(private val faker: Faker = Faker()) : BuilderDsl<String> 
     }
 }
 
-fun String.Companion.of(transform: StringBuilderDsl.() -> StringBuilderDsl = { StringBuilderDsl() }): String {
+fun String.Companion.of(
+    transform: StringBuilderDsl.() -> StringBuilderDsl = { StringBuilderDsl() }
+): String {
     return transform(StringBuilderDsl())()
 }

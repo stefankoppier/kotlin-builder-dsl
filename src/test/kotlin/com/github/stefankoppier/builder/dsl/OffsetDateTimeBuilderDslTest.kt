@@ -1,29 +1,28 @@
 package com.github.stefankoppier.builder.dsl
 
-import org.junit.jupiter.api.Test
-import org.mockito.Mockito
-import org.mockito.kotlin.whenever
-import java.math.BigDecimal
 import java.time.LocalDate
 import java.time.LocalTime
 import java.time.OffsetDateTime
 import java.time.ZoneOffset
 import kotlin.test.assertEquals
+import org.junit.jupiter.api.Test
+import org.mockito.kotlin.mock
+import org.mockito.kotlin.whenever
 
 class OffsetDateTimeBuilderDslTest {
 
     @Test
-    fun `random`() {
-        val faker = Mockito.spy(Faker::class.java)
-        whenever(faker.nextLocalDate()).thenReturn(LocalDate.EPOCH)
-        whenever(faker.nextLocalTime()).thenReturn(LocalTime.NOON)
+    fun random() {
+        val faker = mock<Faker>()
 
         val expected = OffsetDateTime.of(LocalDate.EPOCH, LocalTime.NOON, ZoneOffset.UTC)
+        whenever(faker.nextOffsetDateTime()).thenReturn(expected)
+
         assertEquals(expected, OffsetDateTimeBuilderDsl(faker)())
     }
 
     @Test
-    fun `constant`() {
+    fun constant() {
         val expected = OffsetDateTime.of(LocalDate.EPOCH, LocalTime.NOON, ZoneOffset.UTC)
         assertEquals(expected, OffsetDateTimeBuilderDsl().constant(expected)())
     }

@@ -7,6 +7,7 @@ plugins {
 
     id("maven-publish")
     id("jacoco")
+    id("com.diffplug.spotless") version "6.12.0"
 }
 
 group = "com.github.stefankoppier"
@@ -57,5 +58,11 @@ publishing {
                 }
             }
         }
+    }
+}
+
+spotless {
+    kotlin {
+        ktfmt().dropboxStyle()
     }
 }

@@ -1,17 +1,17 @@
 package com.github.stefankoppier.builder.dsl.primitives
 
 import com.github.stefankoppier.builder.dsl.Faker
-import org.junit.jupiter.api.Test
-import org.mockito.Mockito
-import org.mockito.kotlin.whenever
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
+import org.junit.jupiter.api.Test
+import org.mockito.kotlin.mock
+import org.mockito.kotlin.whenever
 
 class IntBuilderDslTest {
 
     @Test
     fun random() {
-        val faker = Mockito.spy(Faker::class.java)
+        val faker = mock<Faker>()
         whenever(faker.nextInt()).thenReturn(1)
         assertEquals(1, IntBuilderDsl(faker)())
     }
@@ -23,7 +23,7 @@ class IntBuilderDslTest {
 
     @Test
     fun `between 1 and 10`() {
-        assertTrue { (0..10).contains((Int.of { between(1, 10)})) }
+        assertTrue { Int.of { between(1, 10) } in (0..10) }
     }
 
     @Test

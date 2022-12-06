@@ -1,17 +1,16 @@
 package com.github.stefankoppier.builder.dsl.primitives
 
 import com.github.stefankoppier.builder.dsl.Faker
-import org.junit.jupiter.api.Test
-import org.mockito.Mockito
-import org.mockito.kotlin.whenever
 import kotlin.test.assertEquals
-import kotlin.test.assertTrue
+import org.junit.jupiter.api.Test
+import org.mockito.kotlin.mock
+import org.mockito.kotlin.whenever
 
 class DoubleBuilderDslTest {
 
     @Test
     fun random() {
-        val faker = Mockito.spy(Faker::class.java)
+        val faker = mock<Faker>()
         whenever(faker.nextDouble()).thenReturn(1.0)
         assertEquals(1.0, DoubleBuilderDsl(faker)())
     }

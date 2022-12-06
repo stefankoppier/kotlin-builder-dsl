@@ -3,7 +3,7 @@ package com.github.stefankoppier.builder.dsl.primitives
 import com.github.stefankoppier.builder.dsl.BuilderDsl
 import com.github.stefankoppier.builder.dsl.Faker
 
-class DoubleBuilderDsl(private val faker: Faker = Faker()): BuilderDsl<Double> {
+class DoubleBuilderDsl(private val faker: Faker = Faker()) : BuilderDsl<Double> {
 
     private var constant: Double? = null
 
@@ -17,6 +17,8 @@ class DoubleBuilderDsl(private val faker: Faker = Faker()): BuilderDsl<Double> {
     }
 }
 
-fun Double.Companion.of(transform: DoubleBuilderDsl.() -> DoubleBuilderDsl = { DoubleBuilderDsl() }): Double {
+fun Double.Companion.of(
+    transform: DoubleBuilderDsl.() -> DoubleBuilderDsl = { DoubleBuilderDsl() }
+): Double {
     return transform(DoubleBuilderDsl())()
 }
