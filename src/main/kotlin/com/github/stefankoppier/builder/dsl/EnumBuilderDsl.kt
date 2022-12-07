@@ -2,9 +2,7 @@ package com.github.stefankoppier.builder.dsl
 /**
  * Abstract DSL for building [Enum] objects using the given [Faker].
  *
- * To use this class, extend it and implement the method [allValues].
- *
- * For example:
+ * To use this class, extend it and implement the method [allValues]. For example:
  * ```kotlin
  * class DayOfWeekEnumBuilderDsl(faker: Faker = Faker())
  *      : EnumBuilderDsl<DayOfWeek>(faker) {
