@@ -1,13 +1,14 @@
 package com.github.stefankoppier.builder.dsl
 
-/** DSL for building [List] objects using the given [Faker] and element factory [B].
+/**
+ * DSL for building [List] objects using the given [Faker] and element factory [B].
  *
  * For example:
  * ```kotlin
  * ListBuilderDsl(Int.of { constant(1) })
  * ```
  * will result in a list of random size between 0 and 10 consisting of 1's.
- * */
+ */
 class ListBuilderDsl<E, B : BuilderDsl<E>>(private val factory: B, private val faker: Faker = Faker()) :
     BuilderDsl<List<E>> {
 
@@ -79,8 +80,7 @@ class ListBuilderDsl<E, B : BuilderDsl<E>>(private val factory: B, private val f
     }
 
     /**
-     * Instruct the builder to generate a list where each element depends on the previous.
-     * For example:
+     * Instruct the builder to generate a list where each element depends on the previous. For example:
      * ```kotlin
      * ListBuilderDsl(Int.of { constant(1) })
      *      .previous { constant(it + 1) }
