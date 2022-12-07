@@ -11,7 +11,7 @@ class ListBuilderDslTest {
     @Test
     fun random() {
         val faker = mock<Faker>()
-        whenever(faker.nextInt(0, 10)).thenReturn(2)
+        whenever(faker.int(0, 10)).thenReturn(2)
         val factory = IntBuilderDsl(faker).constant(1)
         val result = ListBuilderDsl(factory, faker)()
         assertEquals(listOf(1, 1), result)
@@ -26,7 +26,7 @@ class ListBuilderDslTest {
     @Test
     fun previous() {
         val faker = mock<Faker>()
-        whenever(faker.nextInt(0, 10)).thenReturn(3)
+        whenever(faker.int(0, 10)).thenReturn(3)
         val factory = IntBuilderDsl().constant(0)
         val result = ListBuilderDsl(factory, faker).previous { constant(it + 1) }()
         assertEquals(listOf(0, 1, 2), result)

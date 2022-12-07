@@ -13,7 +13,7 @@ class IntBuilderDslTest {
     @Test
     fun random() {
         val faker = mock<Faker>()
-        whenever(faker.nextInt()).thenReturn(1)
+        whenever(faker.int()).thenReturn(1)
         assertEquals(1, IntBuilderDsl(faker)())
     }
 

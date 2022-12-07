@@ -11,7 +11,7 @@ class DoubleBuilderDslTest {
     @Test
     fun random() {
         val faker = mock<Faker>()
-        whenever(faker.nextDouble()).thenReturn(1.0)
+        whenever(faker.double()).thenReturn(1.0)
         assertEquals(1.0, DoubleBuilderDsl(faker)())
     }
 

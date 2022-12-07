@@ -21,14 +21,14 @@ class EnumBuilderDslTest {
     @Test
     fun random() {
         val faker = mock<Faker>()
-        whenever(faker.nextInt(0, 2)).thenReturn(0)
+        whenever(faker.int(0, 2)).thenReturn(0)
         assertEquals(TestEnum.FIRST, TestEnumBuilderDsl(faker)())
     }
 
     @Test
     fun filter() {
         val faker = mock<Faker>()
-        whenever(faker.nextInt()).thenReturn(0)
+        whenever(faker.int()).thenReturn(0)
         assertEquals(TestEnum.SECOND, TestEnumBuilderDsl(faker).filter { it != TestEnum.FIRST }())
     }
 }

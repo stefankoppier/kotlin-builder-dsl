@@ -13,7 +13,7 @@ class LongBuilderDslTest {
     @Test
     fun random() {
         val faker = mock<Faker>()
-        whenever(faker.nextLong()).thenReturn(1)
+        whenever(faker.long()).thenReturn(1)
         assertEquals(1, LongBuilderDsl(faker)())
     }
 

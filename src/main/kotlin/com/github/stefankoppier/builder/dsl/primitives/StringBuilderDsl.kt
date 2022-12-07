@@ -29,7 +29,7 @@ class StringBuilderDsl(private val faker: Faker = Faker()) : BuilderDsl<String> 
                 logger.error(message, e)
             }
         }
-        return faker.nextString(min, max)
+        return faker.string(min, max)
     }
 
     fun constant(value: String): StringBuilderDsl {

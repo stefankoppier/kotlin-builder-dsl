@@ -8,7 +8,7 @@ class FloatBuilderDsl(private val faker: Faker = Faker()) : BuilderDsl<Float> {
     private var constant: Float? = null
 
     override fun invoke(): Float {
-        return constant ?: faker.nextFloat()
+        return constant ?: faker.float()
     }
 
     fun constant(value: Float): FloatBuilderDsl {

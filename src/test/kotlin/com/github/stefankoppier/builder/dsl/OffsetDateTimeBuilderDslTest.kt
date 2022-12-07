@@ -16,7 +16,7 @@ class OffsetDateTimeBuilderDslTest {
         val faker = mock<Faker>()
 
         val expected = OffsetDateTime.of(LocalDate.EPOCH, LocalTime.NOON, ZoneOffset.UTC)
-        whenever(faker.nextOffsetDateTime()).thenReturn(expected)
+        whenever(faker.offsetDateTime()).thenReturn(expected)
 
         assertEquals(expected, OffsetDateTimeBuilderDsl(faker)())
     }

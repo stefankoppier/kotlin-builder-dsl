@@ -8,7 +8,7 @@ class BooleanBuilderDsl(private val faker: Faker = Faker()) : BuilderDsl<Boolean
     private var constant: Boolean? = null
 
     override fun invoke(): Boolean {
-        return constant ?: faker.nextBoolean()
+        return constant ?: faker.boolean()
     }
 
     fun constant(value: Boolean): BooleanBuilderDsl {

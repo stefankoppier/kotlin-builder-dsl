@@ -13,7 +13,7 @@ class StringBuilderDslTest {
     @Test
     fun random() {
         val faker = mock<Faker>()
-        whenever(faker.nextString()).thenReturn("1")
+        whenever(faker.string()).thenReturn("1")
         assertEquals("1", StringBuilderDsl(faker)())
     }
 
@@ -31,7 +31,7 @@ class StringBuilderDslTest {
     @Test
     fun `format of invalid pattern`() {
         val faker = mock<Faker>()
-        whenever(faker.nextString(0, 24)).thenReturn("random")
+        whenever(faker.string(0, 24)).thenReturn("random")
         assertEquals("random", StringBuilderDsl(faker).format("a{-+1}")())
     }
 

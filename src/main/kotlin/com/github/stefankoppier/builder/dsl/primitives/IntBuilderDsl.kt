@@ -12,7 +12,7 @@ class IntBuilderDsl(private val faker: Faker = Faker()) : BuilderDsl<Int> {
     private var max = Int.MAX_VALUE
 
     override fun invoke(): Int {
-        return constant ?: faker.nextInt(min, max)
+        return constant ?: faker.int(min, max)
     }
 
     fun constant(value: Int): IntBuilderDsl {

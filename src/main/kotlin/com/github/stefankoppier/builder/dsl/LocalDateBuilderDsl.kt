@@ -7,7 +7,7 @@ class LocalDateBuilderDsl(private val faker: Faker = Faker()) : BuilderDsl<Local
     private var constant: LocalDate? = null
 
     override fun invoke(): LocalDate {
-        return constant ?: faker.nextLocalDate()
+        return constant ?: faker.localDate()
     }
 
     fun constant(value: LocalDate): LocalDateBuilderDsl {

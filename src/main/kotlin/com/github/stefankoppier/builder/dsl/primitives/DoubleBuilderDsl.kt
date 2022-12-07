@@ -8,7 +8,7 @@ class DoubleBuilderDsl(private val faker: Faker = Faker()) : BuilderDsl<Double> 
     private var constant: Double? = null
 
     override fun invoke(): Double {
-        return constant ?: faker.nextDouble()
+        return constant ?: faker.double()
     }
 
     fun constant(value: Double): DoubleBuilderDsl {

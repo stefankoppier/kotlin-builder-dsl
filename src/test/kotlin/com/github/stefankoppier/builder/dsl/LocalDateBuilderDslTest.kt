@@ -11,7 +11,7 @@ class LocalDateBuilderDslTest {
     @Test
     fun random() {
         val faker = mock<Faker>()
-        whenever(faker.nextLocalDate()).thenReturn(LocalDate.EPOCH)
+        whenever(faker.localDate()).thenReturn(LocalDate.EPOCH)
         assertEquals(LocalDate.EPOCH, LocalDateBuilderDsl(faker)())
     }
 

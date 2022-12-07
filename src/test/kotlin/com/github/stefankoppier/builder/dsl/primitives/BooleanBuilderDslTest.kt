@@ -12,7 +12,7 @@ class BooleanBuilderDslTest {
     @Test
     fun random() {
         val faker = mock<Faker>()
-        whenever(faker.nextBoolean()).thenReturn(false)
+        whenever(faker.boolean()).thenReturn(false)
         assertFalse { BooleanBuilderDsl(faker)() }
     }
 

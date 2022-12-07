@@ -12,7 +12,7 @@ class LongBuilderDsl(private val faker: Faker = Faker()) : BuilderDsl<Long> {
     private var max = Long.MAX_VALUE
 
     override fun invoke(): Long {
-        return constant ?: faker.nextLong(min, max)
+        return constant ?: faker.long(min, max)
     }
 
     fun constant(value: Long): LongBuilderDsl {

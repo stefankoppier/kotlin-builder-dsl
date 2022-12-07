@@ -8,7 +8,7 @@ abstract class EnumBuilderDsl<E : Enum<E>>(val faker: Faker = Faker()) : Builder
 
     override fun invoke(): E {
         val options = allValues().filter(filter)
-        return options[faker.nextInt(0, options.size)]
+        return options[faker.int(0, options.size)]
     }
 
     fun filter(predicate: (E) -> Boolean): EnumBuilderDsl<E> {

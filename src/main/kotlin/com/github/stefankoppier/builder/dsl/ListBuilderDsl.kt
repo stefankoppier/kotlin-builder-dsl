@@ -1,7 +1,5 @@
 package com.github.stefankoppier.builder.dsl
 
-import java.util.*
-
 class ListBuilderDsl<E, B : BuilderDsl<E>>(private val factory: B, private val faker: Faker = Faker()) :
     BuilderDsl<List<E>> {
 
@@ -12,7 +10,7 @@ class ListBuilderDsl<E, B : BuilderDsl<E>>(private val factory: B, private val f
     private var previous: (B.(E) -> B)? = null
 
     override fun invoke(): List<E> {
-        val size = 0 until faker.nextInt(min, max)
+        val size = 0 until faker.int(min, max)
 
         if (previous != null) {
             val first = factory()

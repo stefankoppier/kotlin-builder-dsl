@@ -7,7 +7,7 @@ class OffsetDateTimeBuilderDsl(private val faker: Faker = Faker()) : BuilderDsl<
     private var constant: OffsetDateTime? = null
 
     override fun invoke(): OffsetDateTime {
-        return constant ?: faker.nextOffsetDateTime()
+        return constant ?: faker.offsetDateTime()
     }
 
     fun constant(value: OffsetDateTime): OffsetDateTimeBuilderDsl {

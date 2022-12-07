@@ -7,7 +7,7 @@ class BigDecimalBuilderDsl(private val faker: Faker = Faker()) : BuilderDsl<BigD
     private var constant: BigDecimal? = null
 
     override fun invoke(): BigDecimal {
-        return constant ?: BigDecimal.valueOf(faker.nextDouble())
+        return constant ?: BigDecimal.valueOf(faker.double())
     }
 
     fun constant(value: BigDecimal): BigDecimalBuilderDsl {

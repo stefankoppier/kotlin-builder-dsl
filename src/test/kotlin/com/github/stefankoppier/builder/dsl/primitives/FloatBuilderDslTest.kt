@@ -11,7 +11,7 @@ class FloatBuilderDslTest {
     @Test
     fun random() {
         val faker = mock<Faker>()
-        whenever(faker.nextFloat()).thenReturn(1.0f)
+        whenever(faker.float()).thenReturn(1.0f)
         assertEquals(1.0f, FloatBuilderDsl(faker)())
     }
 
