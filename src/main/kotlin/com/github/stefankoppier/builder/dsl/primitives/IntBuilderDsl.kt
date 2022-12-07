@@ -39,9 +39,7 @@ class IntBuilderDsl(private val faker: Faker = Faker()) : BuilderDsl<Int> {
      * @param min The (inclusive) minimum value.
      * @param max The (exclusive) maximum value.
      *
-     * @throws IllegalArgumentException When [min] is less than [max].
-     * @throws IllegalArgumentException When [min] is negative.
-     * @throws IllegalArgumentException When [max] is negative.
+     * @throws IllegalArgumentException When [min] is negative, [max] is negative, or [min] is less than [max].
      * @return The DSL itself.
      */
     fun between(min: Int, max: Int): IntBuilderDsl {
