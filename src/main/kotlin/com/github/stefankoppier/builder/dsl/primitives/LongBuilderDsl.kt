@@ -3,6 +3,7 @@ package com.github.stefankoppier.builder.dsl.primitives
 import com.github.stefankoppier.builder.dsl.BuilderDsl
 import com.github.stefankoppier.builder.dsl.Faker
 
+/** DSL for building [Long] objects using the given [Faker]. */
 class LongBuilderDsl(private val faker: Faker = Faker()) : BuilderDsl<Long> {
 
     private var constant: Long? = null
@@ -11,10 +12,22 @@ class LongBuilderDsl(private val faker: Faker = Faker()) : BuilderDsl<Long> {
 
     private var max = Long.MAX_VALUE
 
+    /**
+     * Generates the object according to the provided instructions.
+     *
+     * @return A new [Long].
+     */
     override fun invoke(): Long {
         return constant ?: faker.long(min, max)
     }
 
+    /**
+     * Instruct the builder to generate a constant.
+     *
+     * @param value The value to generate.
+     *
+     * @return The DSL itself.
+     */
     fun constant(value: Long): LongBuilderDsl {
         constant = value
         return this
@@ -41,6 +54,15 @@ class LongBuilderDsl(private val faker: Faker = Faker()) : BuilderDsl<Long> {
     }
 }
 
+/**
+ * Generate a [Long].
+ *
+ * For example: `Long.of { constant(1L) }`
+ *
+ * @param transform The instructions.
+ *
+ * @return A new [Long].
+ */
 fun Long.Companion.of(transform: LongBuilderDsl.() -> LongBuilderDsl = { LongBuilderDsl() }): Long {
     return transform(LongBuilderDsl())()
 }

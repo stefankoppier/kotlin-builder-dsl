@@ -31,7 +31,7 @@ class DoubleBuilderDsl(private val faker: Faker = Faker()) : BuilderDsl<Double> 
 }
 
 /**
- * Extension function for [Double.Companion] to simplify the DSL access.
+ * Generate a [Double].
  *
  * For example: `Double.of { constant(1) }`
  *

@@ -5,6 +5,7 @@ import com.github.stefankoppier.builder.dsl.BuilderDsl
 import com.github.stefankoppier.builder.dsl.Faker
 import org.slf4j.LoggerFactory
 
+/** DSL for building [String] objects using the given [Faker]. */
 class StringBuilderDsl(private val faker: Faker = Faker()) : BuilderDsl<String> {
 
     private val logger = LoggerFactory.getLogger(StringBuilderDsl::class.java)
@@ -17,6 +18,11 @@ class StringBuilderDsl(private val faker: Faker = Faker()) : BuilderDsl<String> 
 
     private var max = 24
 
+    /**
+     * Generates the object according to the provided instructions.
+     *
+     * @return A new [String].
+     */
     override fun invoke(): String {
         if (constant != null) {
             return constant!!
@@ -32,6 +38,13 @@ class StringBuilderDsl(private val faker: Faker = Faker()) : BuilderDsl<String> 
         return faker.string(min, max)
     }
 
+    /**
+     * Instruct the builder to generate a constant.
+     *
+     * @param value The value to generate.
+     *
+     * @return The DSL itself.
+     */
     fun constant(value: String): StringBuilderDsl {
         constant = value
         format = null
@@ -65,6 +78,15 @@ class StringBuilderDsl(private val faker: Faker = Faker()) : BuilderDsl<String> 
     }
 }
 
+/**
+ * Generate a [String].
+ *
+ * For example: `String.of { constant("value") }`
+ *
+ * @param transform The instructions.
+ *
+ * @return A new [String].
+ */
 fun String.Companion.of(transform: StringBuilderDsl.() -> StringBuilderDsl = { StringBuilderDsl() }): String {
     return transform(StringBuilderDsl())()
 }

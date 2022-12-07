@@ -3,6 +3,7 @@ package com.github.stefankoppier.builder.dsl.primitives
 import com.github.stefankoppier.builder.dsl.BuilderDsl
 import com.github.stefankoppier.builder.dsl.Faker
 
+/** DSL for building [Int] objects using the given [Faker]. */
 class IntBuilderDsl(private val faker: Faker = Faker()) : BuilderDsl<Int> {
 
     private var constant: Int? = null
@@ -11,10 +12,22 @@ class IntBuilderDsl(private val faker: Faker = Faker()) : BuilderDsl<Int> {
 
     private var max = Int.MAX_VALUE
 
+    /**
+     * Generates the object according to the provided instructions.
+     *
+     * @return A new [Int].
+     */
     override fun invoke(): Int {
         return constant ?: faker.int(min, max)
     }
 
+    /**
+     * Instruct the builder to generate a constant.
+     *
+     * @param value The value to generate.
+     *
+     * @return The DSL itself.
+     */
     fun constant(value: Int): IntBuilderDsl {
         constant = value
         return this
@@ -41,6 +54,15 @@ class IntBuilderDsl(private val faker: Faker = Faker()) : BuilderDsl<Int> {
     }
 }
 
+/**
+ * Generate a [Int].
+ *
+ * For example: `Int.of { constant(1) }`
+ *
+ * @param transform The instructions.
+ *
+ * @return A new [Int].
+ */
 fun Int.Companion.of(transform: IntBuilderDsl.() -> IntBuilderDsl = { IntBuilderDsl() }): Int {
     return transform(IntBuilderDsl())()
 }
