@@ -1,5 +1,10 @@
 import org.jetbrains.kotlinx.publisher.apache2
 import org.jetbrains.kotlinx.publisher.githubRepo
+import java.net.URL
+
+val repository = "kotlin-builder-dsl"
+val organization = "stefankoppier"
+val github = "https://github.com/$organization/$repository"
 
 repositories {
     mavenCentral()
@@ -36,6 +41,16 @@ tasks.jacocoTestReport  {
     }
 }
 
+tasks.dokkaHtml.configure {
+    dokkaSourceSets {
+        configureEach {
+            sourceLink {
+                remoteUrl.set(URL(github))
+            }
+        }
+    }
+}
+
 kotlinPublications {
     defaultGroup.set("$group")
 
@@ -44,9 +59,6 @@ kotlinPublications {
     }
 
     pom {
-        val repository = "kotlin-builder-dsl"
-        val organization = "stefankoppier"
-
         name.set(repository)
         description.set("Data generation dsl for Kotlin")
 
@@ -66,55 +78,10 @@ kotlinPublications {
 
         issueManagement {
             system.set("GitHub")
-            url.set("https://github.com/$organization/$repository/issues")
+            url.set("{$github/issues")
         }
     }
 }
-
-//java {
-//    withSourcesJar()
-//}
-//
-//val dokkaHtml by tasks.getting(org.jetbrains.dokka.gradle.DokkaTask::class)
-//
-//val javadocJar: TaskProvider<Jar> by tasks.registering(Jar::class) {
-//    dependsOn(dokkaHtml)
-//    archiveClassifier.set("javadoc")
-//    from(dokkaHtml.outputDirectory)
-//}
-
-//publishing {
-//    publications {
-//        register("mavenKotlin", MavenPublication::class) {
-//            from(components["kotlin"])
-//            artifact(tasks.named("sourcesJar").get())
-////            artifact(javadocJar)
-//            artifactId  = "kotlin-builder-dsl"
-//            pom {
-//                val github = "https://github.com/StefanKoppier/kotlin-builder-dsl"
-//
-//                name.set("kotlin-builder-dsl")
-//                url.set(github)
-//                developers {
-//                    developer {
-//                        id.set("stefankoppier")
-//                        name.set("Stefan Koppier")
-//                        email.set("stefan.koppier@outlook.com")
-//                    }
-//                }
-//                issueManagement {
-//                    system.set("GitHub")
-//                    url.set("$github/issues")
-//                }
-//                scm {
-//                    connection.set("scm:git:$github")
-//                    developerConnection.set("scm:git:$github")
-//                    url.set(github)
-//                }
-//            }
-//        }
-//    }
-//}
 
 spotless {
     kotlin {
