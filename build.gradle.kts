@@ -1,13 +1,17 @@
+import org.jetbrains.kotlinx.publisher.apache2
+import org.jetbrains.kotlinx.publisher.githubRepo
+
 repositories {
     mavenCentral()
 }
 
 plugins {
     kotlin("jvm") version "1.7.21"
+    kotlin("libs.publisher") version "0.0.60-dev-32"
 
-    id("maven-publish")
     id("jacoco")
     id("com.diffplug.spotless") version "6.12.0"
+    id("org.jetbrains.dokka") version "1.7.20"
 }
 
 group = "com.github.stefankoppier"
@@ -32,34 +36,85 @@ tasks.jacocoTestReport  {
     }
 }
 
-java {
-    withSourcesJar()
-}
+kotlinPublications {
+    defaultGroup.set("$group")
 
-publishing {
-    publications {
-        register("mavenKotlin", MavenPublication::class) {
-            from(components["kotlin"])
-            artifact(tasks.named("sourcesJar").get())
-            artifactId  = "kotlin-builder-dsl"
-            pom {
-                name.set("kotlin-builder-dsl")
-                url.set("https://github.com/StefanKoppier/kotlin-builder-dsl")
-                developers {
-                    developer {
-                        id.set("stefankoppier")
-                        name.set("Stefan Koppier")
-                        email.set("stefan.koppier@outlook.com")
-                    }
-                }
-                scm {
-                    connection.set("scm:git:https://github.com/StefanKoppier/kotlin-builder-dsl.git")
-                    url.set("https://github.com/StefanKoppier/kotlin-builder-dsl")
-                }
+    publication {
+        publicationName.set(name)
+    }
+
+    pom {
+        val repository = "kotlin-builder-dsl"
+        val organization = "stefankoppier"
+
+        name.set(repository)
+        description.set("Data generation dsl for Kotlin")
+
+        githubRepo(organization, repository)
+
+        developers {
+            developer {
+                id.set(organization)
+                name.set("Stefan Koppier")
+                email.set("stefan.koppier@outlook.com")
             }
+        }
+
+        licenses {
+            apache2()
+        }
+
+        issueManagement {
+            system.set("GitHub")
+            url.set("https://github.com/$organization/$repository/issues")
         }
     }
 }
+
+//java {
+//    withSourcesJar()
+//}
+//
+//val dokkaHtml by tasks.getting(org.jetbrains.dokka.gradle.DokkaTask::class)
+//
+//val javadocJar: TaskProvider<Jar> by tasks.registering(Jar::class) {
+//    dependsOn(dokkaHtml)
+//    archiveClassifier.set("javadoc")
+//    from(dokkaHtml.outputDirectory)
+//}
+
+//publishing {
+//    publications {
+//        register("mavenKotlin", MavenPublication::class) {
+//            from(components["kotlin"])
+//            artifact(tasks.named("sourcesJar").get())
+////            artifact(javadocJar)
+//            artifactId  = "kotlin-builder-dsl"
+//            pom {
+//                val github = "https://github.com/StefanKoppier/kotlin-builder-dsl"
+//
+//                name.set("kotlin-builder-dsl")
+//                url.set(github)
+//                developers {
+//                    developer {
+//                        id.set("stefankoppier")
+//                        name.set("Stefan Koppier")
+//                        email.set("stefan.koppier@outlook.com")
+//                    }
+//                }
+//                issueManagement {
+//                    system.set("GitHub")
+//                    url.set("$github/issues")
+//                }
+//                scm {
+//                    connection.set("scm:git:$github")
+//                    developerConnection.set("scm:git:$github")
+//                    url.set(github)
+//                }
+//            }
+//        }
+//    }
+//}
 
 spotless {
     kotlin {
