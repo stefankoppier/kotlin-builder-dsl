@@ -16,8 +16,8 @@ class Faker(private val random: Random = Random.Default) {
     /**
      * Generate a random [Int] using the provided random number generator.
      *
-     * @param min the (inclusive) minimum value.
-     * @param max the (exclusive) maximum value.
+     * @param min The (inclusive) minimum value.
+     * @param max The (exclusive) maximum value.
      *
      * @return A random [Int] `r` such that `min <= r < max`.
      */
@@ -28,8 +28,8 @@ class Faker(private val random: Random = Random.Default) {
     /**
      * Generate a random [Long] using the provided random number generator.
      *
-     * @param min the (inclusive) minimum value.
-     * @param max the (exclusive) maximum value.
+     * @param min The (inclusive) minimum value.
+     * @param max The (exclusive) maximum value.
      *
      * @return A random [Long] `r` such that `min <= r < max`.
      */
@@ -49,8 +49,8 @@ class Faker(private val random: Random = Random.Default) {
     /**
      * Generate a random [Float] using the provided random number generator.
      *
-     * @param min the (inclusive) minimum value.
-     * @param max the (exclusive) maximum value.
+     * @param min The (inclusive) minimum value.
+     * @param max The (exclusive) maximum value.
      *
      * @return A random [Float] `r` such that `min <= r < max`.
      */
@@ -61,8 +61,8 @@ class Faker(private val random: Random = Random.Default) {
     /**
      * Generate a random [Double] using the provided random number generator.
      *
-     * @param min the (inclusive) minimum value.
-     * @param max the (exclusive) maximum value.
+     * @param min The (inclusive) minimum value.
+     * @param max The (exclusive) maximum value.
      *
      * @return A random [Double] `r` such that `min <= r < max`.
      */
@@ -84,8 +84,8 @@ class Faker(private val random: Random = Random.Default) {
     /**
      * Generate a random [String] using the provided random number generator.
      *
-     * @param min the (inclusive) minimum length.
-     * @param max the (exclusive) maximum length.
+     * @param min The (inclusive) minimum length.
+     * @param max The (exclusive) maximum length.
      *
      * @return A random alphanumeric [String] `r` such that `min <= r.length < max`.
      */

@@ -33,7 +33,7 @@ class DoubleBuilderDsl(private val faker: Faker = Faker()) : BuilderDsl<Double> 
 /**
  * Generate a [Double].
  *
- * For example: `Double.of { constant(1) }`
+ * For example: `Double.of { constant(1.0) }`
  *
  * @param transform The instructions.
  *
