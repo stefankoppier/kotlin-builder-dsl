@@ -1,32 +1,11 @@
 package com.github.stefankoppier.builder.dsl.primitives
 
-import com.github.stefankoppier.builder.dsl.BuilderDsl
 import com.github.stefankoppier.builder.dsl.Faker
 
 /** DSL for building [Double] objects using the given [Faker]. */
-class DoubleBuilderDsl(private val faker: Faker = Faker()) : BuilderDsl<Double> {
-
-    private var constant: Double? = null
-
-    /**
-     * Generates the object according to the provided instructions.
-     *
-     * @return A new [Double].
-     */
-    override fun invoke(): Double {
-        return constant ?: faker.double()
-    }
-
-    /**
-     * Instruct the builder to generate a constant.
-     *
-     * @param value The value to generate.
-     *
-     * @return The DSL itself.
-     */
-    fun constant(value: Double): DoubleBuilderDsl {
-        constant = value
-        return this
+class DoubleBuilderDsl(faker: Faker = Faker()) : NumberBuilderDsl<Double, DoubleBuilderDsl>(faker) {
+    override fun random(min: Double?, max: Double?): Double {
+        return faker.double(min ?: Double.MIN_VALUE, max ?: Double.MAX_VALUE)
     }
 }
 

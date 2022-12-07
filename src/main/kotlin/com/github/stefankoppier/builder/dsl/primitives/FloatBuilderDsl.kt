@@ -1,32 +1,12 @@
 package com.github.stefankoppier.builder.dsl.primitives
 
-import com.github.stefankoppier.builder.dsl.BuilderDsl
 import com.github.stefankoppier.builder.dsl.Faker
 
 /** DSL for building [Float] objects using the given [Faker]. */
-class FloatBuilderDsl(private val faker: Faker = Faker()) : BuilderDsl<Float> {
+class FloatBuilderDsl(faker: Faker = Faker()) : NumberBuilderDsl<Float, FloatBuilderDsl>(faker) {
 
-    private var constant: Float? = null
-
-    /**
-     * Generates the object according to the provided instructions.
-     *
-     * @return A new [Float].
-     */
-    override fun invoke(): Float {
-        return constant ?: faker.float()
-    }
-
-    /**
-     * Instruct the builder to generate a constant.
-     *
-     * @param value The value to generate.
-     *
-     * @return The DSL itself.
-     */
-    fun constant(value: Float): FloatBuilderDsl {
-        constant = value
-        return this
+    override fun random(min: Float?, max: Float?): Float {
+        return faker.float(min ?: Float.MIN_VALUE, max ?: Float.MAX_VALUE)
     }
 }
 
