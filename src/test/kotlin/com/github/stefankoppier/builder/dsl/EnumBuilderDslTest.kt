@@ -1,5 +1,6 @@
 package com.github.stefankoppier.builder.dsl
 
+import java.time.DayOfWeek
 import kotlin.test.assertEquals
 import org.junit.jupiter.api.Test
 import org.mockito.kotlin.mock
@@ -7,28 +8,23 @@ import org.mockito.kotlin.whenever
 
 class EnumBuilderDslTest {
 
-    private enum class TestEnum {
-        FIRST,
-        SECOND
-    }
-
-    private class TestEnumBuilderDsl(faker: Faker) : EnumBuilderDsl<TestEnum>(faker) {
-        override fun allValues(): Array<TestEnum> {
-            return TestEnum.values()
+    private class TestEnumBuilderDsl(faker: Faker) : EnumBuilderDsl<DayOfWeek>(faker) {
+        override fun allValues(): Array<DayOfWeek> {
+            return DayOfWeek.values()
         }
     }
 
     @Test
     fun random() {
         val faker = mock<Faker>()
-        whenever(faker.int(0, 2)).thenReturn(0)
-        assertEquals(TestEnum.FIRST, TestEnumBuilderDsl(faker)())
+        whenever(faker.int(0, DayOfWeek.values().size)).thenReturn(0)
+        assertEquals(DayOfWeek.MONDAY, TestEnumBuilderDsl(faker)())
     }
 
     @Test
     fun filter() {
         val faker = mock<Faker>()
         whenever(faker.int()).thenReturn(0)
-        assertEquals(TestEnum.SECOND, TestEnumBuilderDsl(faker).filter { it != TestEnum.FIRST }())
+        assertEquals(DayOfWeek.FRIDAY, TestEnumBuilderDsl(faker).filter { it == DayOfWeek.FRIDAY }())
     }
 }

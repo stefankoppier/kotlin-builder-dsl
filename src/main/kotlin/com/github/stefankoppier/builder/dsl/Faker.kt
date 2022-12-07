@@ -99,7 +99,7 @@ class Faker(private val random: Random = Random.Default) {
     /**
      * Generate a random enum [E] using the provided random number generator.
      *
-     * @param predicate Filter options for which the predicate does not hold.
+     * @param predicate Filter values for which the predicate does not hold.
      *
      * @return A random enum <E> `r` such that `predicate(r) == false`.
      */

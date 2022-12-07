@@ -54,6 +54,8 @@ class StringBuilderDsl(private val faker: Faker = Faker()) : BuilderDsl<String> 
     /**
      * Instruct the builder to generate a random value that satisfied [pattern].
      *
+     * When the format is not valid, a random [String] will be generated.
+     *
      * @param pattern The pattern to satisfy.
      *
      * @return The DSL itself.
