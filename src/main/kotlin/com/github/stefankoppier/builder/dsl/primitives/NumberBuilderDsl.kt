@@ -3,6 +3,7 @@ package com.github.stefankoppier.builder.dsl.primitives
 import com.github.stefankoppier.builder.dsl.BuilderDsl
 import com.github.stefankoppier.builder.dsl.Faker
 
+@Suppress("UNCHECKED_CAST")
 abstract class NumberBuilderDsl<T : Number, B : NumberBuilderDsl<T, B>>(protected val faker: Faker = Faker()) :
     BuilderDsl<T> {
 

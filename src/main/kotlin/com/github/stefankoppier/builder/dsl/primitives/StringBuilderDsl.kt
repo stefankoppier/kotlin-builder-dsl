@@ -82,7 +82,7 @@ class StringBuilderDsl(private val faker: Faker = Faker()) : BuilderDsl<String> 
     }
 
     /**
-     * Instruct the builder to generate a value greater or equal to [max].
+     * Instruct the builder to generate a value of length greater or equal to [max].
      *
      * @param max The (inclusive) minimum value.
      *

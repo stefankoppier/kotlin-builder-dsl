@@ -19,7 +19,7 @@ class ListBuilderDslTest {
 
     @Test
     fun between() {
-        val result = ListBuilderDsl(factory = IntBuilderDsl()).between(3, 3)()
+        val result = ListBuilderDsl(IntBuilderDsl()).between(3, 3)()
         assertEquals(3, result.size)
     }
 
