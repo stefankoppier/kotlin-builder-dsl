@@ -45,7 +45,9 @@ tasks.dokkaHtml.configure {
     dokkaSourceSets {
         configureEach {
             sourceLink {
-                remoteUrl.set(URL(github))
+                localDirectory.set(file("src/main/kotlin"))
+                remoteUrl.set(URL("$github/blob/master/src/main/kotlin"))
+                remoteLineSuffix.set("#L")
             }
         }
     }
