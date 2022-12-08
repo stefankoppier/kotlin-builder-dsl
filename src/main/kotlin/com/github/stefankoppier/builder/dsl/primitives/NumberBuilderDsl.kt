@@ -28,7 +28,7 @@ abstract class NumberBuilderDsl<T : Number, B : NumberBuilderDsl<T, B>>(protecte
      * @param min The (inclusive) minimum value.
      * @param max The (exclusive) maximum value.
      *
-     * @throws IllegalArgumentException When [min] is negative, [max] is negative, or [min] is less than [max].
+     * @throws IllegalArgumentException When [min] is less than [max].
      * @return The DSL itself.
      */
     fun between(min: T, max: T): B {
@@ -44,12 +44,9 @@ abstract class NumberBuilderDsl<T : Number, B : NumberBuilderDsl<T, B>>(protecte
      *
      * @param min The (inclusive) minimum value.
      *
-     * @throws IllegalArgumentException When [min] is negative.
      * @return The DSL itself.
      */
     fun min(min: T): B {
-        require(min.toInt() >= 0) { "min must be positive, instead '$min' was given" }
-
         this.min = min
         return this as B
     }
@@ -59,12 +56,9 @@ abstract class NumberBuilderDsl<T : Number, B : NumberBuilderDsl<T, B>>(protecte
      *
      * @param max The (exclusive) maximum value.
      *
-     * @throws IllegalArgumentException When [max] is negative.
      * @return The DSL itself.
      */
     fun max(max: T): B {
-        require(max.toInt() > 0) { "max must be positive, instead '$max' was given" }
-
         this.max = max
         return this as B
     }
