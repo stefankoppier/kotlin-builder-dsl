@@ -5,7 +5,7 @@ package com.github.stefankoppier.builder.dsl
  *
  * For example:
  * ```kotlin
- * ListBuilderDsl(IntBuilder().constant(1))
+ * ListBuilder(IntBuilder().constant(1))
  * ```
  * will result in a list of random size between 0 and 10 consisting of 1's.
  */
