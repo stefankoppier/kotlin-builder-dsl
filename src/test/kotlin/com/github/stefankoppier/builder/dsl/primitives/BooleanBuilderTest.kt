@@ -7,18 +7,18 @@ import kotlin.test.assertTrue
 import org.mockito.kotlin.mock
 import org.mockito.kotlin.whenever
 
-class BooleanBuilderDslTest {
+class BooleanBuilderTest {
 
     @Test
     fun random() {
         val faker = mock<Faker>()
         whenever(faker.boolean()).thenReturn(false)
-        assertFalse { BooleanBuilderDsl(faker)() }
+        assertFalse { BooleanBuilder(faker)() }
     }
 
     @Test
     fun constant() {
-        assertTrue { BooleanBuilderDsl().constant(true)() }
+        assertTrue { BooleanBuilder().constant(true)() }
     }
 
     @Test

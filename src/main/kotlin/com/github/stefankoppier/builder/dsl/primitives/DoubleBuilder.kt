@@ -3,7 +3,7 @@ package com.github.stefankoppier.builder.dsl.primitives
 import com.github.stefankoppier.builder.dsl.Faker
 
 /** DSL for building [Double] objects using the given [Faker]. */
-class DoubleBuilderDsl(faker: Faker = Faker()) : NumberBuilderDsl<Double, DoubleBuilderDsl>(faker) {
+class DoubleBuilder(faker: Faker = Faker()) : NumberBuilder<Double, DoubleBuilder>(faker) {
     override fun random(min: Double?, max: Double?): Double {
         return faker.double(min ?: Double.MIN_VALUE, max ?: Double.MAX_VALUE)
     }
@@ -18,6 +18,6 @@ class DoubleBuilderDsl(faker: Faker = Faker()) : NumberBuilderDsl<Double, Double
  *
  * @return A new [Double].
  */
-fun Double.Companion.of(transform: DoubleBuilderDsl.() -> DoubleBuilderDsl = { DoubleBuilderDsl() }): Double {
-    return transform(DoubleBuilderDsl())()
+fun Double.Companion.of(transform: DoubleBuilder.() -> DoubleBuilder = { DoubleBuilder() }): Double {
+    return transform(DoubleBuilder())()
 }

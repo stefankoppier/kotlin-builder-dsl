@@ -8,31 +8,31 @@ import org.junit.jupiter.api.assertThrows
 import org.mockito.kotlin.mock
 import org.mockito.kotlin.whenever
 
-class StringBuilderDslTest {
+class StringBuilderTest {
 
     @Test
     fun random() {
         val faker = mock<Faker>()
         whenever(faker.string()).thenReturn("1")
-        assertEquals("1", StringBuilderDsl(faker)())
+        assertEquals("1", StringBuilder(faker)())
     }
 
     @Test
     fun constant() {
-        assertEquals("2", StringBuilderDsl().constant("2")())
+        assertEquals("2", StringBuilder().constant("2")())
     }
 
     @Test
     fun `format of valid pattern`() {
         val regex = "[aAzZ]+"
-        assertTrue { StringBuilderDsl().format(regex)().matches(Regex(regex)) }
+        assertTrue { StringBuilder().format(regex)().matches(Regex(regex)) }
     }
 
     @Test
     fun `format of invalid pattern`() {
         val faker = mock<Faker>()
         whenever(faker.string(0, 24)).thenReturn("random")
-        assertEquals("random", StringBuilderDsl(faker).format("a{-+1}")())
+        assertEquals("random", StringBuilder(faker).format("a{-+1}")())
     }
 
     @Test

@@ -6,17 +6,17 @@ import org.junit.jupiter.api.Test
 import org.mockito.kotlin.mock
 import org.mockito.kotlin.whenever
 
-class LocalDateBuilderDslTest {
+class LocalDateBuilderTest {
 
     @Test
     fun random() {
         val faker = mock<Faker>()
         whenever(faker.localDate()).thenReturn(LocalDate.EPOCH)
-        assertEquals(LocalDate.EPOCH, LocalDateBuilderDsl(faker)())
+        assertEquals(LocalDate.EPOCH, LocalDateBuilder(faker)())
     }
 
     @Test
     fun constant() {
-        assertEquals(LocalDate.EPOCH, LocalDateBuilderDsl().constant(LocalDate.EPOCH)())
+        assertEquals(LocalDate.EPOCH, LocalDateBuilder().constant(LocalDate.EPOCH)())
     }
 }

@@ -3,7 +3,7 @@ package com.github.stefankoppier.builder.dsl.primitives
 import com.github.stefankoppier.builder.dsl.Faker
 
 /** DSL for building [Int] objects using the given [Faker]. */
-class IntBuilderDsl(faker: Faker = Faker()) : NumberBuilderDsl<Int, IntBuilderDsl>(faker) {
+class IntBuilder(faker: Faker = Faker()) : NumberBuilder<Int, IntBuilder>(faker) {
     override fun random(min: Int?, max: Int?): Int {
         return faker.int(min ?: Int.MIN_VALUE, max ?: Int.MAX_VALUE)
     }
@@ -18,6 +18,6 @@ class IntBuilderDsl(faker: Faker = Faker()) : NumberBuilderDsl<Int, IntBuilderDs
  *
  * @return A new [Int].
  */
-fun Int.Companion.of(transform: IntBuilderDsl.() -> IntBuilderDsl = { IntBuilderDsl() }): Int {
-    return transform(IntBuilderDsl())()
+fun Int.Companion.of(transform: IntBuilder.() -> IntBuilder = { IntBuilder() }): Int {
+    return transform(IntBuilder())()
 }

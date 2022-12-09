@@ -14,7 +14,9 @@ package com.github.stefankoppier.builder.dsl
  *
  * @param E The enum type.
  */
-abstract class EnumBuilderDsl<E : Enum<E>>(val faker: Faker = Faker()) : BuilderDsl<E> {
+abstract class EnumBuilder<E : Enum<E>>(val faker: Faker = Faker()) : BuilderDsl<E> {
+
+    private var constant: E? = null
 
     private var filter: (E) -> Boolean = { true }
 
@@ -26,8 +28,16 @@ abstract class EnumBuilderDsl<E : Enum<E>>(val faker: Faker = Faker()) : Builder
      * @return A new enum [E].
      */
     override fun invoke(): E {
+        if (constant != null) {
+            return constant!!
+        }
         val options = allValues().filter(filter)
         return options[faker.int(0, options.size)]
+    }
+
+    override fun constant(value: E): EnumBuilder<E> {
+        this.constant = value
+        return this
     }
 
     /**
@@ -37,7 +47,7 @@ abstract class EnumBuilderDsl<E : Enum<E>>(val faker: Faker = Faker()) : Builder
      *
      * @return The DSL itself.
      */
-    fun filter(predicate: (E) -> Boolean): EnumBuilderDsl<E> {
+    fun filter(predicate: (E) -> Boolean): EnumBuilder<E> {
         this.filter = predicate
         return this
     }

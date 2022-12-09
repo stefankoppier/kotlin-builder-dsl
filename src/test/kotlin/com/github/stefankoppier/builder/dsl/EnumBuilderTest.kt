@@ -6,9 +6,9 @@ import org.junit.jupiter.api.Test
 import org.mockito.kotlin.mock
 import org.mockito.kotlin.whenever
 
-class EnumBuilderDslTest {
+class EnumBuilderTest {
 
-    private class TestEnumBuilderDsl(faker: Faker) : EnumBuilderDsl<DayOfWeek>(faker) {
+    private class TestEnumBuilder(faker: Faker) : EnumBuilder<DayOfWeek>(faker) {
         override fun allValues(): Array<DayOfWeek> {
             return DayOfWeek.values()
         }
@@ -18,13 +18,13 @@ class EnumBuilderDslTest {
     fun random() {
         val faker = mock<Faker>()
         whenever(faker.int(0, DayOfWeek.values().size)).thenReturn(0)
-        assertEquals(DayOfWeek.MONDAY, TestEnumBuilderDsl(faker)())
+        assertEquals(DayOfWeek.MONDAY, TestEnumBuilder(faker)())
     }
 
     @Test
     fun filter() {
         val faker = mock<Faker>()
         whenever(faker.int()).thenReturn(0)
-        assertEquals(DayOfWeek.FRIDAY, TestEnumBuilderDsl(faker).filter { it == DayOfWeek.FRIDAY }())
+        assertEquals(DayOfWeek.FRIDAY, TestEnumBuilder(faker).filter { it == DayOfWeek.FRIDAY }())
     }
 }

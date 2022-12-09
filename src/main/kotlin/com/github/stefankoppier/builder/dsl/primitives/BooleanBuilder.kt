@@ -4,7 +4,7 @@ import com.github.stefankoppier.builder.dsl.BuilderDsl
 import com.github.stefankoppier.builder.dsl.Faker
 
 /** DSL for building [Boolean] objects using the given [Faker]. */
-class BooleanBuilderDsl(private val faker: Faker = Faker()) : BuilderDsl<Boolean> {
+class BooleanBuilder(private val faker: Faker = Faker()) : BuilderDsl<Boolean> {
 
     private var constant: Boolean? = null
 
@@ -24,7 +24,7 @@ class BooleanBuilderDsl(private val faker: Faker = Faker()) : BuilderDsl<Boolean
      *
      * @return The DSL itself.
      */
-    fun constant(value: Boolean): BooleanBuilderDsl {
+    override fun constant(value: Boolean): BooleanBuilder {
         constant = value
         return this
     }
@@ -39,6 +39,6 @@ class BooleanBuilderDsl(private val faker: Faker = Faker()) : BuilderDsl<Boolean
  *
  * @return A new [Boolean].
  */
-fun Boolean.Companion.of(transform: BooleanBuilderDsl.() -> BooleanBuilderDsl = { BooleanBuilderDsl() }): Boolean {
-    return transform(BooleanBuilderDsl())()
+fun Boolean.Companion.of(transform: BooleanBuilder.() -> BooleanBuilder = { BooleanBuilder() }): Boolean {
+    return transform(BooleanBuilder())()
 }

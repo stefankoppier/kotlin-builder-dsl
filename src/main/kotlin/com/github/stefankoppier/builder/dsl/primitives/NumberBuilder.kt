@@ -4,7 +4,7 @@ import com.github.stefankoppier.builder.dsl.BuilderDsl
 import com.github.stefankoppier.builder.dsl.Faker
 
 @Suppress("UNCHECKED_CAST")
-abstract class NumberBuilderDsl<T : Number, B : NumberBuilderDsl<T, B>>(protected val faker: Faker = Faker()) :
+abstract class NumberBuilder<T : Number, B : NumberBuilder<T, B>>(protected val faker: Faker = Faker()) :
     BuilderDsl<T> {
 
     private var constant: T? = null
@@ -17,7 +17,7 @@ abstract class NumberBuilderDsl<T : Number, B : NumberBuilderDsl<T, B>>(protecte
         return constant ?: random(min, max)
     }
 
-    fun constant(value: T): B {
+    override fun constant(value: T): B {
         this.constant = value
         return this as B
     }

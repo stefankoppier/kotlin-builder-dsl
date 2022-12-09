@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test
 import org.mockito.kotlin.mock
 import org.mockito.kotlin.whenever
 
-class OffsetDateTimeBuilderDslTest {
+class OffsetDateTimeBuilderTest {
 
     @Test
     fun random() {
@@ -18,12 +18,12 @@ class OffsetDateTimeBuilderDslTest {
         val expected = OffsetDateTime.of(LocalDate.EPOCH, LocalTime.NOON, ZoneOffset.UTC)
         whenever(faker.offsetDateTime()).thenReturn(expected)
 
-        assertEquals(expected, OffsetDateTimeBuilderDsl(faker)())
+        assertEquals(expected, OffsetDateTimeBuilder(faker)())
     }
 
     @Test
     fun constant() {
         val expected = OffsetDateTime.of(LocalDate.EPOCH, LocalTime.NOON, ZoneOffset.UTC)
-        assertEquals(expected, OffsetDateTimeBuilderDsl().constant(expected)())
+        assertEquals(expected, OffsetDateTimeBuilder().constant(expected)())
     }
 }

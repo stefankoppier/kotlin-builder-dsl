@@ -1,10 +1,10 @@
 package com.github.stefankoppier.builder.dsl
 
-import com.github.stefankoppier.builder.dsl.primitives.NumberBuilderDsl
+import com.github.stefankoppier.builder.dsl.primitives.NumberBuilder
 import java.math.BigDecimal
 
 /** DSL for building [BigDecimal] objects using the given [Faker]. */
-class BigDecimalBuilderDsl(faker: Faker = Faker()) : NumberBuilderDsl<BigDecimal, BigDecimalBuilderDsl>(faker) {
+class BigDecimalBuilder(faker: Faker = Faker()) : NumberBuilder<BigDecimal, BigDecimalBuilder>(faker) {
 
     override fun random(min: BigDecimal?, max: BigDecimal?): BigDecimal {
         return BigDecimal.valueOf(

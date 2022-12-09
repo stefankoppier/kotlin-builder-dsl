@@ -6,18 +6,18 @@ import org.junit.jupiter.api.Test
 import org.mockito.kotlin.mock
 import org.mockito.kotlin.whenever
 
-class DoubleBuilderDslTest {
+class DoubleBuilderTest {
 
     @Test
     fun random() {
         val faker = mock<Faker>()
         whenever(faker.double()).thenReturn(1.0)
-        assertEquals(1.0, DoubleBuilderDsl(faker)())
+        assertEquals(1.0, DoubleBuilder(faker)())
     }
 
     @Test
     fun constant() {
-        assertEquals(2.0, DoubleBuilderDsl().constant(2.0)())
+        assertEquals(2.0, DoubleBuilder().constant(2.0)())
     }
 
     @Test

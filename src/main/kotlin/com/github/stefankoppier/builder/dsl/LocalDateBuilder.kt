@@ -3,7 +3,7 @@ package com.github.stefankoppier.builder.dsl
 import java.time.LocalDate
 
 /** DSL for building [LocalDate] objects using the given [Faker]. */
-class LocalDateBuilderDsl(private val faker: Faker = Faker()) : BuilderDsl<LocalDate> {
+class LocalDateBuilder(private val faker: Faker = Faker()) : BuilderDsl<LocalDate> {
 
     private var constant: LocalDate? = null
 
@@ -23,7 +23,7 @@ class LocalDateBuilderDsl(private val faker: Faker = Faker()) : BuilderDsl<Local
      *
      * @return The DSL itself.
      */
-    fun constant(value: LocalDate): LocalDateBuilderDsl {
+    override fun constant(value: LocalDate): LocalDateBuilder {
         this.constant = value
         return this
     }

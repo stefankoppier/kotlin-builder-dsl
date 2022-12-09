@@ -8,18 +8,18 @@ import org.junit.jupiter.api.assertThrows
 import org.mockito.kotlin.mock
 import org.mockito.kotlin.whenever
 
-class IntBuilderDslTest {
+class IntBuilderTest {
 
     @Test
     fun random() {
         val faker = mock<Faker>()
         whenever(faker.int()).thenReturn(1)
-        assertEquals(1, IntBuilderDsl(faker)())
+        assertEquals(1, IntBuilder(faker)())
     }
 
     @Test
     fun constant() {
-        assertEquals(2, IntBuilderDsl().constant(2)())
+        assertEquals(2, IntBuilder().constant(2)())
     }
 
     @Test
@@ -30,16 +30,6 @@ class IntBuilderDslTest {
     @Test
     fun `between 10 and 1`() {
         assertThrows<IllegalArgumentException> { Int.of { between(10, 1) } }
-    }
-
-    @Test
-    fun `min of negative number`() {
-        assertThrows<IllegalArgumentException> { Int.of { min(-1) } }
-    }
-
-    @Test
-    fun `max of negative number`() {
-        assertThrows<IllegalArgumentException> { Int.of { max(-1) } }
     }
 
     @Test
