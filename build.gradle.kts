@@ -44,6 +44,8 @@ tasks.jacocoTestReport  {
 tasks.dokkaHtml.configure {
     dokkaSourceSets {
         configureEach {
+            reportUndocumented.set(false)
+
             sourceLink {
                 localDirectory.set(file("src/main/kotlin"))
                 remoteUrl.set(URL("$github/blob/master/src/main/kotlin"))
