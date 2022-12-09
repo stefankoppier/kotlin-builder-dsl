@@ -12,7 +12,7 @@ class OffsetDateTimeBuilder(private val faker: Faker = Faker()) : BuilderDsl<Off
      *
      * @return A new [OffsetDateTime].
      */
-    override fun invoke(): OffsetDateTime {
+    override operator fun invoke(): OffsetDateTime {
         return constant ?: faker.offsetDateTime()
     }
 
@@ -23,7 +23,7 @@ class OffsetDateTimeBuilder(private val faker: Faker = Faker()) : BuilderDsl<Off
      *
      * @return The DSL itself.
      */
-    override fun constant(value: OffsetDateTime): OffsetDateTimeBuilder {
+    fun constant(value: OffsetDateTime): OffsetDateTimeBuilder {
         this.constant = value
         return this
     }

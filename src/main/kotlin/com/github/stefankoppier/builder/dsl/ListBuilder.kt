@@ -18,19 +18,26 @@ B : BuilderDsl<E> {
 
     private var max: Int = 10
 
-    override fun constant(value: List<E>): ListBuilder<E, B> {
-        this.constant = value
-        return this
-    }
-
     /**
      * Generates the object according to the provided instructions.
      *
      * @return A new [List].
      */
-    override fun invoke(): List<E> {
+    override operator fun invoke(): List<E> {
         val size = 0 until faker.int(min, max)
         return (size - 1).fold(mutableListOf(factory())) { acc, _ -> acc with this.factory.invoke() }
+    }
+
+    /**
+     * Instruct the builder to generate a constant.
+     *
+     * @param value The value to generate.
+     *
+     * @return The DSL itself.
+     */
+    fun constant(value: List<E>): ListBuilder<E, B> {
+        this.constant = value
+        return this
     }
 
     /**

@@ -4,6 +4,7 @@ import com.github.stefankoppier.builder.dsl.Faker
 
 /** DSL for building [Double] objects using the given [Faker]. */
 class DoubleBuilder(faker: Faker = Faker()) : NumberBuilder<Double, DoubleBuilder>(faker) {
+
     override fun random(min: Double?, max: Double?): Double {
         return faker.double(min ?: Double.MIN_VALUE, max ?: Double.MAX_VALUE)
     }

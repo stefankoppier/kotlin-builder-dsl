@@ -13,7 +13,7 @@ class BooleanBuilder(private val faker: Faker = Faker()) : BuilderDsl<Boolean> {
      *
      * @return A new [Boolean].
      */
-    override fun invoke(): Boolean {
+    override operator fun invoke(): Boolean {
         return constant ?: faker.boolean()
     }
 
@@ -24,7 +24,7 @@ class BooleanBuilder(private val faker: Faker = Faker()) : BuilderDsl<Boolean> {
      *
      * @return The DSL itself.
      */
-    override fun constant(value: Boolean): BooleanBuilder {
+    fun constant(value: Boolean): BooleanBuilder {
         constant = value
         return this
     }

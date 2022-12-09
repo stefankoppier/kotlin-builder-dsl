@@ -23,7 +23,7 @@ class StringBuilder(private val faker: Faker = Faker()) : BuilderDsl<String> {
      *
      * @return A new [String].
      */
-    override fun invoke(): String {
+    override operator fun invoke(): String {
         if (constant != null) {
             return constant!!
         }
@@ -45,7 +45,7 @@ class StringBuilder(private val faker: Faker = Faker()) : BuilderDsl<String> {
      *
      * @return The DSL itself.
      */
-    override fun constant(value: String): StringBuilder {
+    fun constant(value: String): StringBuilder {
         constant = value
         format = null
         return this

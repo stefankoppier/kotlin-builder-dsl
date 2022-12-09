@@ -13,11 +13,18 @@ abstract class NumberBuilder<T : Number, B : NumberBuilder<T, B>>(protected val 
 
     private var max: T? = null
 
-    override fun invoke(): T {
+    override operator fun invoke(): T {
         return constant ?: random(min, max)
     }
 
-    override fun constant(value: T): B {
+    /**
+     * Instruct the builder to generate a constant.
+     *
+     * @param value The value to generate.
+     *
+     * @return The DSL itself.
+     */
+    fun constant(value: T): B {
         this.constant = value
         return this as B
     }

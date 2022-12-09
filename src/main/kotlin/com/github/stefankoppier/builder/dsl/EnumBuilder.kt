@@ -27,7 +27,7 @@ abstract class EnumBuilder<E : Enum<E>>(val faker: Faker = Faker()) : BuilderDsl
      *
      * @return A new enum [E].
      */
-    override fun invoke(): E {
+    override operator fun invoke(): E {
         if (constant != null) {
             return constant!!
         }
@@ -35,7 +35,14 @@ abstract class EnumBuilder<E : Enum<E>>(val faker: Faker = Faker()) : BuilderDsl
         return options[faker.int(0, options.size)]
     }
 
-    override fun constant(value: E): EnumBuilder<E> {
+    /**
+     * Instruct the builder to generate a constant.
+     *
+     * @param value The value to generate.
+     *
+     * @return The DSL itself.
+     */
+    fun constant(value: E): EnumBuilder<E> {
         this.constant = value
         return this
     }
