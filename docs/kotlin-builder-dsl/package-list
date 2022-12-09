@@ -39,7 +39,6 @@ $dokka.location:com.github.stefankoppier.builder.dsl//with/kotlin.collections.Mu
 $dokka.location:com.github.stefankoppier.builder.dsl/BigDecimalBuilder///PointingToDeclaration/kotlin-builder-dsl/com.github.stefankoppier.builder.dsl/-big-decimal-builder/index.html
 $dokka.location:com.github.stefankoppier.builder.dsl/BigDecimalBuilder/BigDecimalBuilder/#com.github.stefankoppier.builder.dsl.Faker/PointingToDeclaration/kotlin-builder-dsl/com.github.stefankoppier.builder.dsl/-big-decimal-builder/-big-decimal-builder.html
 $dokka.location:com.github.stefankoppier.builder.dsl/BuilderDsl///PointingToDeclaration/kotlin-builder-dsl/com.github.stefankoppier.builder.dsl/-builder-dsl/index.html
-$dokka.location:com.github.stefankoppier.builder.dsl/BuilderDsl/constant/#TypeParam(bounds=[kotlin.Any?])/PointingToDeclaration/kotlin-builder-dsl/com.github.stefankoppier.builder.dsl/-builder-dsl/constant.html
 $dokka.location:com.github.stefankoppier.builder.dsl/EnumBuilder///PointingToDeclaration/kotlin-builder-dsl/com.github.stefankoppier.builder.dsl/-enum-builder/index.html
 $dokka.location:com.github.stefankoppier.builder.dsl/EnumBuilder/EnumBuilder/#com.github.stefankoppier.builder.dsl.Faker/PointingToDeclaration/kotlin-builder-dsl/com.github.stefankoppier.builder.dsl/-enum-builder/-enum-builder.html
 $dokka.location:com.github.stefankoppier.builder.dsl/EnumBuilder/constant/#TypeParam(bounds=[kotlin.Enum[^]])/PointingToDeclaration/kotlin-builder-dsl/com.github.stefankoppier.builder.dsl/-enum-builder/constant.html
