@@ -2,7 +2,6 @@ package com.github.stefankoppier.builder.dsl.containers
 
 import com.github.stefankoppier.builder.dsl.BuilderDsl
 import com.github.stefankoppier.builder.dsl.Faker
-import com.github.stefankoppier.builder.dsl.with
 
 /**
  * DSL for building [List] objects using the given [Faker] and element factory [B].
@@ -62,7 +61,7 @@ B : BuilderDsl<E> {
     /**
      * Instruct the builder to generate a list of size greater or equal to [max].
      *
-     * @param max The (inclusive) minimum value.
+     * @param min The (inclusive) minimum value.
      *
      * @throws IllegalArgumentException When [min] is negative.
      * @return The DSL itself.
@@ -88,4 +87,9 @@ B : BuilderDsl<E> {
         this.max = max
         return this
     }
+}
+
+private infix fun <E> MutableList<E>.with(element: E): MutableList<E> {
+    this.add(element)
+    return this
 }
