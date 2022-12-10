@@ -1,5 +1,18 @@
 $dokka.format:html-v1
 $dokka.linkExtension:html
+$dokka.location:com.github.stefankoppier.builder.dsl.containers////PointingToDeclaration/kotlin-builder-dsl/com.github.stefankoppier.builder.dsl.containers/index.html
+$dokka.location:com.github.stefankoppier.builder.dsl.containers/ListBuilder///PointingToDeclaration/kotlin-builder-dsl/com.github.stefankoppier.builder.dsl.containers/-list-builder/index.html
+$dokka.location:com.github.stefankoppier.builder.dsl.containers/ListBuilder/ListBuilder/#TypeParam(bounds=[com.github.stefankoppier.builder.dsl.BuilderDsl[TypeParam(bounds=[kotlin.Any?])]])#com.github.stefankoppier.builder.dsl.Faker/PointingToDeclaration/kotlin-builder-dsl/com.github.stefankoppier.builder.dsl.containers/-list-builder/-list-builder.html
+$dokka.location:com.github.stefankoppier.builder.dsl.containers/ListBuilder/between/#kotlin.Int#kotlin.Int/PointingToDeclaration/kotlin-builder-dsl/com.github.stefankoppier.builder.dsl.containers/-list-builder/between.html
+$dokka.location:com.github.stefankoppier.builder.dsl.containers/ListBuilder/constant/#kotlin.collections.List[TypeParam(bounds=[kotlin.Any?])]/PointingToDeclaration/kotlin-builder-dsl/com.github.stefankoppier.builder.dsl.containers/-list-builder/constant.html
+$dokka.location:com.github.stefankoppier.builder.dsl.containers/ListBuilder/invoke/#/PointingToDeclaration/kotlin-builder-dsl/com.github.stefankoppier.builder.dsl.containers/-list-builder/invoke.html
+$dokka.location:com.github.stefankoppier.builder.dsl.containers/ListBuilder/max/#kotlin.Int/PointingToDeclaration/kotlin-builder-dsl/com.github.stefankoppier.builder.dsl.containers/-list-builder/max.html
+$dokka.location:com.github.stefankoppier.builder.dsl.containers/ListBuilder/min/#kotlin.Int/PointingToDeclaration/kotlin-builder-dsl/com.github.stefankoppier.builder.dsl.containers/-list-builder/min.html
+$dokka.location:com.github.stefankoppier.builder.dsl.containers/NullableBuilder///PointingToDeclaration/kotlin-builder-dsl/com.github.stefankoppier.builder.dsl.containers/-nullable-builder/index.html
+$dokka.location:com.github.stefankoppier.builder.dsl.containers/NullableBuilder/NullableBuilder/#TypeParam(bounds=[com.github.stefankoppier.builder.dsl.BuilderDsl[TypeParam(bounds=[kotlin.Any?])]])#com.github.stefankoppier.builder.dsl.Faker/PointingToDeclaration/kotlin-builder-dsl/com.github.stefankoppier.builder.dsl.containers/-nullable-builder/-nullable-builder.html
+$dokka.location:com.github.stefankoppier.builder.dsl.containers/NullableBuilder/asNonNull/#/PointingToDeclaration/kotlin-builder-dsl/com.github.stefankoppier.builder.dsl.containers/-nullable-builder/as-non-null.html
+$dokka.location:com.github.stefankoppier.builder.dsl.containers/NullableBuilder/asNull/#/PointingToDeclaration/kotlin-builder-dsl/com.github.stefankoppier.builder.dsl.containers/-nullable-builder/as-null.html
+$dokka.location:com.github.stefankoppier.builder.dsl.containers/NullableBuilder/invoke/#/PointingToDeclaration/kotlin-builder-dsl/com.github.stefankoppier.builder.dsl.containers/-nullable-builder/invoke.html
 $dokka.location:com.github.stefankoppier.builder.dsl.primitives////PointingToDeclaration/kotlin-builder-dsl/com.github.stefankoppier.builder.dsl.primitives/index.html
 $dokka.location:com.github.stefankoppier.builder.dsl.primitives//of/kotlin.Boolean.Companion#kotlin.Function1[com.github.stefankoppier.builder.dsl.primitives.BooleanBuilder,com.github.stefankoppier.builder.dsl.primitives.BooleanBuilder]/PointingToDeclaration/kotlin-builder-dsl/com.github.stefankoppier.builder.dsl.primitives/of.html
 $dokka.location:com.github.stefankoppier.builder.dsl.primitives//of/kotlin.Byte.Companion#kotlin.Function1[com.github.stefankoppier.builder.dsl.primitives.ByteBuilder,com.github.stefankoppier.builder.dsl.primitives.ByteBuilder]/PointingToDeclaration/kotlin-builder-dsl/com.github.stefankoppier.builder.dsl.primitives/of.html
@@ -62,13 +75,6 @@ $dokka.location:com.github.stefankoppier.builder.dsl/Faker/localTime/#/PointingT
 $dokka.location:com.github.stefankoppier.builder.dsl/Faker/long/#kotlin.Long#kotlin.Long/PointingToDeclaration/kotlin-builder-dsl/com.github.stefankoppier.builder.dsl/-faker/long.html
 $dokka.location:com.github.stefankoppier.builder.dsl/Faker/offsetDateTime/#/PointingToDeclaration/kotlin-builder-dsl/com.github.stefankoppier.builder.dsl/-faker/offset-date-time.html
 $dokka.location:com.github.stefankoppier.builder.dsl/Faker/string/#kotlin.Int#kotlin.Int/PointingToDeclaration/kotlin-builder-dsl/com.github.stefankoppier.builder.dsl/-faker/string.html
-$dokka.location:com.github.stefankoppier.builder.dsl/ListBuilder///PointingToDeclaration/kotlin-builder-dsl/com.github.stefankoppier.builder.dsl/-list-builder/index.html
-$dokka.location:com.github.stefankoppier.builder.dsl/ListBuilder/ListBuilder/#TypeParam(bounds=[com.github.stefankoppier.builder.dsl.BuilderDsl[TypeParam(bounds=[kotlin.Any?])]])#com.github.stefankoppier.builder.dsl.Faker/PointingToDeclaration/kotlin-builder-dsl/com.github.stefankoppier.builder.dsl/-list-builder/-list-builder.html
-$dokka.location:com.github.stefankoppier.builder.dsl/ListBuilder/between/#kotlin.Int#kotlin.Int/PointingToDeclaration/kotlin-builder-dsl/com.github.stefankoppier.builder.dsl/-list-builder/between.html
-$dokka.location:com.github.stefankoppier.builder.dsl/ListBuilder/constant/#kotlin.collections.List[TypeParam(bounds=[kotlin.Any?])]/PointingToDeclaration/kotlin-builder-dsl/com.github.stefankoppier.builder.dsl/-list-builder/constant.html
-$dokka.location:com.github.stefankoppier.builder.dsl/ListBuilder/invoke/#/PointingToDeclaration/kotlin-builder-dsl/com.github.stefankoppier.builder.dsl/-list-builder/invoke.html
-$dokka.location:com.github.stefankoppier.builder.dsl/ListBuilder/max/#kotlin.Int/PointingToDeclaration/kotlin-builder-dsl/com.github.stefankoppier.builder.dsl/-list-builder/max.html
-$dokka.location:com.github.stefankoppier.builder.dsl/ListBuilder/min/#kotlin.Int/PointingToDeclaration/kotlin-builder-dsl/com.github.stefankoppier.builder.dsl/-list-builder/min.html
 $dokka.location:com.github.stefankoppier.builder.dsl/LocalDateBuilder///PointingToDeclaration/kotlin-builder-dsl/com.github.stefankoppier.builder.dsl/-local-date-builder/index.html
 $dokka.location:com.github.stefankoppier.builder.dsl/LocalDateBuilder/LocalDateBuilder/#com.github.stefankoppier.builder.dsl.Faker/PointingToDeclaration/kotlin-builder-dsl/com.github.stefankoppier.builder.dsl/-local-date-builder/-local-date-builder.html
 $dokka.location:com.github.stefankoppier.builder.dsl/LocalDateBuilder/constant/#java.time.LocalDate/PointingToDeclaration/kotlin-builder-dsl/com.github.stefankoppier.builder.dsl/-local-date-builder/constant.html
@@ -78,5 +84,6 @@ $dokka.location:com.github.stefankoppier.builder.dsl/OffsetDateTimeBuilder/Offse
 $dokka.location:com.github.stefankoppier.builder.dsl/OffsetDateTimeBuilder/constant/#java.time.OffsetDateTime/PointingToDeclaration/kotlin-builder-dsl/com.github.stefankoppier.builder.dsl/-offset-date-time-builder/constant.html
 $dokka.location:com.github.stefankoppier.builder.dsl/OffsetDateTimeBuilder/invoke/#/PointingToDeclaration/kotlin-builder-dsl/com.github.stefankoppier.builder.dsl/-offset-date-time-builder/invoke.html
 com.github.stefankoppier.builder.dsl
+com.github.stefankoppier.builder.dsl.containers
 com.github.stefankoppier.builder.dsl.primitives
 
