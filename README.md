@@ -57,7 +57,7 @@ String.of { format("[aAzZ]+") }
 ### Generating a `List` of random size
 We can generate `List` of random size with `Int` elements whose value lies between `0` and `5`.
 ```kotlin
-ListBuilder(IntBuilder.between(0, 5))()
+ListBuilder(IntBuilder().between(0, 5))()
 ```
 
 ### Generating enums
