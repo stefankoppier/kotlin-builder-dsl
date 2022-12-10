@@ -27,10 +27,6 @@ dependencies {
     testImplementation(libraries.mockito.kotlin.get())
 }
 
-tasks.build {
-    finalizedBy(tasks.dokkaHtml)
-}
-
 tasks.test {
     useJUnitPlatform()
     finalizedBy(tasks.jacocoTestReport)
