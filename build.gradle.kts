@@ -105,6 +105,11 @@ publishing {
     }
 }
 
+signing {
+    useGpgCmd()
+    sign(publishing.publications[repository])
+}
+
 spotless {
     kotlin {
         ktfmt().dropboxStyle().configure { options ->
