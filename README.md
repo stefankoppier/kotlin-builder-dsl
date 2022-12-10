@@ -6,6 +6,7 @@ The data types that are included are
 
 | Data type        | Has `of` interface | Note                                                                                      |
 |------------------|--------------------|-------------------------------------------------------------------------------------------|
+| Byte             | &check;            |                                                                                           |
 | Int              | &check;            |                                                                                           |
 | Long             | &check;            |                                                                                           |
 | Float            | &check;            |                                                                                           |
