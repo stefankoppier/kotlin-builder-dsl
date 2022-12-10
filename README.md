@@ -61,8 +61,8 @@ ListBuilder(IntBuilder.between(0, 5))()
 ```
 
 ### Generating enums
-We can generate enum values as well. To do so, we first need to provide a concrete base class.
-For example, for `DayOfWeek` we can define
+We can generate enum values as well. To do so, we first need to provide a concrete base class
+and override the function `allValues`. For example, for `DayOfWeek` we can define
 ```kotlin
 class DayOfWeekEnumBuilder(faker: Faker = Faker()) : EnumBuilder<DayOfWeek> {
     override fun allValues(): Array<DayOfWeek> {
@@ -70,7 +70,7 @@ class DayOfWeekEnumBuilder(faker: Faker = Faker()) : EnumBuilder<DayOfWeek> {
     }
 }
 ```
-Which can then be used
+which can then be used
 ```kotlin
 DayOfWeekEnumBuilder().filter { it != DayOfWeek.MONDAY }()
 ```
