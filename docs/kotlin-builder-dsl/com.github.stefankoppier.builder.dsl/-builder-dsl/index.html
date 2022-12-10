@@ -18,7 +18,7 @@
         }
     }
     </script>
-<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async="async"></script>
+<script src="https://unpkg.com/kotlin-playground@1"></script><script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async="async"></script>
 <link href="../../../styles/style.css" rel="Stylesheet">
 <link href="../../../styles/jetbrains-mono.css" rel="Stylesheet">
 <link href="../../../styles/main.css" rel="Stylesheet">
@@ -55,11 +55,44 @@
   <div class="breadcrumbs"><a href="../../../index.html">kotlin-builder-dsl</a><span class="delimiter">/</span><a href="../index.html">com.github.stefankoppier.builder.dsl</a><span class="delimiter">/</span><span class="current">BuilderDsl</span></div>
   <div class="cover ">
     <h1 class="cover"><span>Builder</span><wbr></wbr><span><span>Dsl</span></span></h1>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">interface </span><a href="index.html">BuilderDsl</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="index.html">T</a><span class="token operator">&gt;</span> : <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-function0/index.html">Function0</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="index.html">T</a><span class="token operator">&gt; </span><span class="clearfix"><span class="floating-right">(<a href="https://github.com/stefankoppier/kotlin-builder-dsl/blob/master/src/main/kotlin/com/github/stefankoppier/builder/dsl/BuilderDsl.kt#L3">source</a>)</span></span></div></div></div>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">interface </span><a href="index.html">BuilderDsl</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="index.html">T</a><span class="token operator">&gt;</span> : <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-function0/index.html">Function0</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="index.html">T</a><span class="token operator">&gt; </span><span class="clearfix"><span class="floating-right">(<a href="https://github.com/stefankoppier/kotlin-builder-dsl/blob/master/src/main/kotlin/com/github/stefankoppier/builder/dsl/BuilderDsl.kt#L3">source</a>)</span></span></div><p class="paragraph">Base interface for creating builders that can be used to generate values of type <a href="index.html">T</a>.</p></div></div>
   </div>
   <div class="tabbedcontent">
-    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="Functions">Functions</button><button class="section-tab" data-togglable="Inheritors">Inheritors</button></div>
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="Functions">Functions</button><button class="section-tab" data-togglable="Samples">Samples</button><button class="section-tab" data-togglable="Inheritors">Inheritors</button></div>
     <div class="tabs-section-body">
+      <h4 class="">Samples</h4>
+      <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Samples"><div class="content sourceset-dependent-content" data-active="" data-togglable=":dokkaHtml/main"><div class="sample-container"><pre><code class="runnablesample monospace block lang-kotlin" theme="idea">import com.github.stefankoppier.builder.dsl.BuilderDsl
+import com.github.stefankoppier.builder.dsl.Faker
+fun main() { 
+   //sampleStart 
+   /** DSL for building [Boolean] objects using the given [Faker]. */
+class BooleanBuilder(private val faker: Faker = Faker()) : BuilderDsl&lt;Boolean&gt; {
+
+    private var constant: Boolean? = null
+
+    /**
+     * Generates the object according to the provided instructions.
+     *
+     * @return A new [Boolean].
+     */
+    override operator fun invoke(): Boolean {
+        return constant ?: faker.boolean()
+    }
+
+    /**
+     * Instruct the builder to generate a constant.
+     *
+     * @param value The value to generate.
+     *
+     * @return The DSL itself.
+     */
+    fun constant(value: Boolean): BooleanBuilder {
+        constant = value
+        return this
+    }
+} 
+   //sampleEnd
+}</code></pre></div></div></div>
       <h2 class="">Functions</h2>
       <div class="table" data-togglable="Functions"><a data-name="-475340832%2FFunctions%2F769193423" anchor-label="invoke" id="-475340832%2FFunctions%2F769193423" data-filterable-set=":dokkaHtml/main"></a>
         <div class="table-row" data-filterable-current=":dokkaHtml/main" data-filterable-set=":dokkaHtml/main">
