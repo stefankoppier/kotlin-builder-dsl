@@ -30,9 +30,7 @@ class StringBuilderTest {
 
     @Test
     fun `format of invalid pattern`() {
-        val faker = mock<Faker>()
-        whenever(faker.string(0, 24)).thenReturn("random")
-        assertEquals("random", StringBuilder(faker).format("a{-+1}")())
+        assertThrows<IllegalArgumentException> { StringBuilder().format("a{-+1}")() }
     }
 
     @Test

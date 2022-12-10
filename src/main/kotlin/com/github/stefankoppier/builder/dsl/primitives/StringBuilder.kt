@@ -3,12 +3,9 @@ package com.github.stefankoppier.builder.dsl.primitives
 import com.github.curiousoddman.rgxgen.RgxGen
 import com.github.stefankoppier.builder.dsl.BuilderDsl
 import com.github.stefankoppier.builder.dsl.Faker
-import org.slf4j.LoggerFactory
 
 /** DSL for building [String] objects using the given [Faker]. */
 class StringBuilder(private val faker: Faker = Faker()) : BuilderDsl<String> {
-
-    private val logger = LoggerFactory.getLogger(StringBuilder::class.java)
 
     private var constant: String? = null
 
@@ -21,6 +18,7 @@ class StringBuilder(private val faker: Faker = Faker()) : BuilderDsl<String> {
     /**
      * Generates the object according to the provided instructions.
      *
+     * @throws IllegalArgumentException When [format] is not a valid pattern.
      * @return A new [String].
      */
     override operator fun invoke(): String {
@@ -31,8 +29,7 @@ class StringBuilder(private val faker: Faker = Faker()) : BuilderDsl<String> {
             try {
                 return RgxGen(format).generate()
             } catch (e: Exception) {
-                val message = "Failed to generate regex from '$format' falling back to a random value."
-                logger.error(message, e)
+                throw IllegalArgumentException("Failed to generate a value from '$format'.", e)
             }
         }
         return faker.string(min, max)
