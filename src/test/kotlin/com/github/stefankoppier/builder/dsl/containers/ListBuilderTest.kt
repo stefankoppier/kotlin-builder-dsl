@@ -1,5 +1,6 @@
-package com.github.stefankoppier.builder.dsl
+package com.github.stefankoppier.builder.dsl.containers
 
+import com.github.stefankoppier.builder.dsl.Faker
 import com.github.stefankoppier.builder.dsl.primitives.IntBuilder
 import kotlin.test.Test
 import kotlin.test.assertEquals

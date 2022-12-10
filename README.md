@@ -26,7 +26,16 @@ dependencies {
     testImplementation("com.github.stefankoppier:kotlin-builder-dsl:0.0.1")
 }
 ```
-Then simply use the builders! For some examples, see [the examples](#examples) 
+Then simply use the builders! For some examples, see [the examples](#examples)
+
+### Nullability
+By default, all builders generate non-nullable data types. If we want to generate a 
+nullable data type, we can use the `NullableBuilder`. We can generate one by
+```kotlin
+NullableBuilder(IntBuilder())()
+```
+where the result is either a random `Int`or `null` each option with a probability 
+of 50%.
 
 ## Examples
 

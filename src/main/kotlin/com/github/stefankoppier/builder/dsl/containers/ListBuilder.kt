@@ -1,13 +1,17 @@
-package com.github.stefankoppier.builder.dsl
+package com.github.stefankoppier.builder.dsl.containers
+
+import com.github.stefankoppier.builder.dsl.BuilderDsl
+import com.github.stefankoppier.builder.dsl.Faker
+import com.github.stefankoppier.builder.dsl.with
 
 /**
  * DSL for building [List] objects using the given [Faker] and element factory [B].
  *
  * For example:
  * ```kotlin
- * ListBuilder(IntBuilder().constant(1))
+ * ListBuilder(IntBuilder().constant(1))()
  * ```
- * will result in a list of random size between 0 and 10 consisting of 1's.
+ * will result in a list of random size between `0` and `10` consisting of `1`'s.
  */
 class ListBuilder<E, B>(private val factory: B, private val faker: Faker = Faker()) : BuilderDsl<List<E>> where
 B : BuilderDsl<E> {
