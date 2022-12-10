@@ -11,23 +11,21 @@ repositories {
 }
 
 plugins {
-    kotlin("jvm") version "1.7.21"
-    kotlin("libs.publisher") version "0.0.60-dev-32"
-
     id("jacoco")
-    id("com.diffplug.spotless") version "6.12.0"
-    id("org.jetbrains.dokka") version "1.7.20"
+    alias(libraries.plugins.kotlin)
+    alias(libraries.plugins.kotlin.libs.publisher)
+    alias(libraries.plugins.spotless)
+    alias(libraries.plugins.dokka)
 }
 
 group = "com.github.stefankoppier"
 version = "0.0.1"
 
 dependencies {
-    implementation("org.slf4j:slf4j-api:2.0.5")
-    implementation("com.github.curious-odd-man:rgxgen:1.4")
+    implementation(libraries.rgxgen.get())
 
-    testImplementation(kotlin("test"))
-    testImplementation("org.mockito.kotlin:mockito-kotlin:4.1.0")
+    testImplementation(libraries.kotlin.test.get())
+    testImplementation(libraries.mockito.kotlin.get())
 }
 
 tasks.test {
