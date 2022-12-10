@@ -16,7 +16,7 @@ The data types that are included are
 | LocalDateBuilder |                    |                                                                                             |
 | OffsetDateTime   |                    |                                                                                             |
 | List             |                    |                                                                                             |
-| Enum             |                    | Is an abstract class which needs a concrete base class. [For example](###Generating enums). |
+| Enum             |                    | Is an abstract class which needs a concrete base class. [For example](###Generating-enums). |
 
 ## Usage
 First, add the dependency for e.g. Gradle:
