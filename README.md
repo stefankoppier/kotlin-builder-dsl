@@ -4,19 +4,19 @@
 This library provides a domain-specific language (DSL) to build data for different data types.
 The data types that are included are
 
-| Data type        | Has `of` interface | Note                                                                                        |
-|------------------|--------------------|---------------------------------------------------------------------------------------------|
-| Int              | &check;            |                                                                                             |
-| Long             | &check;            |                                                                                             |
-| Float            | &check;            |                                                                                             |
-| Double           | &check;            |                                                                                             |
-| Boolean          | &check;            |                                                                                             |
-| String           | &check;            |                                                                                             |
-| BigDecimal       |                    |                                                                                             |
-| LocalDateBuilder |                    |                                                                                             |
-| OffsetDateTime   |                    |                                                                                             |
-| List             |                    |                                                                                             |
-| Enum             |                    | Is an abstract class which needs a concrete base class. [For example](###Generating-enums). |
+| Data type        | Has `of` interface | Note                                                                                      |
+|------------------|--------------------|-------------------------------------------------------------------------------------------|
+| Int              | &check;            |                                                                                           |
+| Long             | &check;            |                                                                                           |
+| Float            | &check;            |                                                                                           |
+| Double           | &check;            |                                                                                           |
+| Boolean          | &check;            |                                                                                           |
+| String           | &check;            |                                                                                           |
+| BigDecimal       |                    |                                                                                           |
+| LocalDateBuilder |                    |                                                                                           |
+| OffsetDateTime   |                    |                                                                                           |
+| List             |                    |                                                                                           |
+| Enum             |                    | Is an abstract class which needs a concrete base class. [For example](#generating-enums). |
 
 ## Usage
 First, add the dependency for e.g. Gradle:
@@ -25,7 +25,7 @@ dependencies {
     testImplementation("com.github.stefankoppier:kotlin-builder-dsl:0.0.1")
 }
 ```
-Then simply use the builders! For some examples, see [the examples](##examples) 
+Then simply use the builders! For some examples, see [the examples](#examples) 
 
 ## Examples
 
