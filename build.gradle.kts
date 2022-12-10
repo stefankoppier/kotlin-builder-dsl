@@ -63,7 +63,7 @@ kotlinPublications {
     }
 
     pom {
-        name.set(repository)
+        name.set("$group:repository")
         description.set("Data generation dsl for Kotlin")
 
         githubRepo(organization, repository)
@@ -73,6 +73,7 @@ kotlinPublications {
                 id.set(organization)
                 name.set("Stefan Koppier")
                 email.set("stefan.koppier@outlook.com")
+                url.set("https://github.com/StefanKoppier")
             }
         }
 
