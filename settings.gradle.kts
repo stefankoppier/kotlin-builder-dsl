@@ -4,7 +4,6 @@ dependencyResolutionManagement {
     versionCatalogs {
         create("libraries") {
             plugin("kotlin", "org.jetbrains.kotlin.jvm").version("1.7.21")
-            plugin("kotlin-libs-publisher", "org.jetbrains.kotlin.libs.publisher").version("0.0.61-dev-33")
             plugin("spotless", "com.diffplug.spotless").version("6.12.0")
             plugin("dokka", "org.jetbrains.dokka").version("1.7.20")
 

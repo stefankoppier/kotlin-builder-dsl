@@ -1,10 +1,8 @@
-import org.jetbrains.kotlinx.publisher.apache2
-import org.jetbrains.kotlinx.publisher.githubRepo
 import java.net.URL
 
 val repository = "kotlin-builder-dsl"
 val organization = "stefankoppier"
-val github = "https://github.com/$organization/$repository"
+val github = "github.com/$organization/$repository"
 
 repositories {
     mavenCentral()
@@ -12,8 +10,9 @@ repositories {
 
 plugins {
     id("jacoco")
+    id("maven-publish")
+    id("signing")
     alias(libraries.plugins.kotlin)
-    alias(libraries.plugins.kotlin.libs.publisher)
     alias(libraries.plugins.spotless)
     alias(libraries.plugins.dokka)
 }
@@ -46,42 +45,62 @@ tasks.dokkaHtml.configure {
 
             sourceLink {
                 localDirectory.set(file("src/main/kotlin"))
-                remoteUrl.set(URL("$github/blob/master/src/main/kotlin"))
+                remoteUrl.set(URL("https://$github/blob/master/src/main/kotlin"))
                 remoteLineSuffix.set("#L")
             }
         }
     }
 }
 
-kotlinPublications {
-    defaultGroup.set("$group")
+java {
+    withSourcesJar()
+}
 
-    publication {
-        publicationName.set(name)
-    }
+tasks.register<Jar>("javadocJar") {
+    dependsOn("dokkaJavadoc")
+    archiveClassifier.set("javadoc")
+    from(tasks.named("dokkaJavadoc"))
+}
 
-    pom {
-        name.set("$group:repository")
-        description.set("Data generation dsl for Kotlin")
+publishing {
+    publications {
+        create<MavenPublication>(repository) {
+            from(components["kotlin"])
+            artifact(tasks.named("sourcesJar").get())
+            artifact(tasks.named("javadocJar").get())
+            artifactId = repository
 
-        githubRepo(organization, repository)
+            pom {
+                name.set("$group:$repository")
+                description.set("Data generation dsl for Kotlin")
 
-        developers {
-            developer {
-                id.set(organization)
-                name.set("Stefan Koppier")
-                email.set("stefan.koppier@outlook.com")
-                url.set("https://github.com/StefanKoppier")
+                developers {
+                    developer {
+                        id.set(organization)
+                        name.set("Stefan Koppier")
+                        email.set("stefan.koppier@outlook.com")
+                        url.set("https://github.com/StefanKoppier")
+                    }
+                }
+
+                scm {
+                    connection.set("scm:git:git@$github.git")
+                    developerConnection.set("scm:git:git@$github.git")
+                    url.set("https://$github/tree/main")
+                }
+
+                licenses {
+                    license {
+                        name.set("The Apache License, Version 2.0")
+                        url.set("http://www.apache.org/licenses/LICENSE-2.0.txt")
+                    }
+                }
+
+                issueManagement {
+                    system.set("GitHub")
+                    url.set("https://$github/issues")
+                }
             }
-        }
-
-        licenses {
-            apache2()
-        }
-
-        issueManagement {
-            system.set("GitHub")
-            url.set("{$github/issues")
         }
     }
 }
@@ -93,3 +112,4 @@ spotless {
         }
     }
 }
+
