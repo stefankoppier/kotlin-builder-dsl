@@ -25,7 +25,7 @@ dependencies {
     testImplementation("com.github.stefankoppier:kotlin-builder-dsl:0.0.1")
 }
 ```
-Then simply use the builders! For some examples, see [the examples](##Examples) 
+Then simply use the builders! For some examples, see [the examples](##examples) 
 
 ## Examples
 
