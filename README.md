@@ -1,17 +1,33 @@
 ![Coverage](.github/badges/jacoco.svg)
 
 # Kotlin Builder DSL
+This library provides a domain-specific language (DSL) to build data for different data types.
+The data types that are included are
+
+| Data type        | Has `of` interface | Note                                                                                        |
+|------------------|--------------------|---------------------------------------------------------------------------------------------|
+| Int              | &check;            |                                                                                             |
+| Long             | &check;            |                                                                                             |
+| Float            | &check;            |                                                                                             |
+| Double           | &check;            |                                                                                             |
+| Boolean          | &check;            |                                                                                             |
+| String           | &check;            |                                                                                             |
+| BigDecimal       |                    |                                                                                             |
+| LocalDateBuilder |                    |                                                                                             |
+| OffsetDateTime   |                    |                                                                                             |
+| List             |                    |                                                                                             |
+| Enum             |                    | Is an abstract class which needs a concrete base class. [For example](###Generating enums). |
 
 ## Usage
-
-### Gradle kotlin dsl
+First, add the dependency for e.g. Gradle:
 ```kotlin
 dependencies {
     testImplementation("com.github.stefankoppier:kotlin-builder-dsl:0.0.1")
 }
 ```
+Then simply use the builders! For some examples, see [the examples](##Examples) 
 
-### Examples
+## Examples
 
 ### Generating a random `Int`
 ```kotlin
