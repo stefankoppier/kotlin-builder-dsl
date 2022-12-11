@@ -1,4 +1,7 @@
-![Coverage](.github/badges/jacoco.svg)
+{% assign version = "0.0.1" %}
+
+![Coverage](.github/badges/jacoco.svg) 
+[![[Maven]](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Frepo1.maven.org%2Fmaven2%2Fio%2Fgithub%2Fstefankoppier%2Fkotlin-builder-dsl%2Fmaven-metadata.xml&versionPrefix={{vresion}})](https://mvnrepository.com/artifact/io-stefankoppier/kotlin-builder-dsl)
 
 # Kotlin Builder DSL
 This library provides a domain-specific language (DSL) to build data for different data types.
@@ -23,7 +26,7 @@ The data types that are included are
 First, add the dependency for e.g. Gradle:
 ```kotlin
 dependencies {
-    testImplementation("io.github.stefankoppier:kotlin-builder-dsl:0.0.1")
+    testImplementation("io.github.stefankoppier:kotlin-builder-dsl:{{version}}")
 }
 ```
 Then simply use the builders! For some examples, see [the examples](#examples)
