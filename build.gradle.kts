@@ -1,5 +1,3 @@
-import java.net.URL
-
 val repository = "kotlin-builder-dsl"
 val organization = "stefankoppier"
 val github = "github.com/$organization/$repository"
@@ -45,7 +43,7 @@ tasks.dokkaHtml.configure {
 
             sourceLink {
                 localDirectory.set(file("src/main/kotlin"))
-                remoteUrl.set(URL("https://$github/blob/master/src/main/kotlin"))
+                remoteUrl.set(uri("https://$github/blob/master/src/main/kotlin").toURL())
                 remoteLineSuffix.set("#L")
             }
         }
@@ -100,6 +98,16 @@ publishing {
                     system.set("GitHub")
                     url.set("https://$github/issues")
                 }
+            }
+        }
+    }
+
+    repositories {
+        mavenCentral {
+            url = uri("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/")
+            credentials {
+                username = properties["ussrhUsername"] as String
+                password = properties["ussrhPassword"] as String
             }
         }
     }
