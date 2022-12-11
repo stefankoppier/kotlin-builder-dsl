@@ -61,6 +61,18 @@ tasks.register<Jar>("javadocJar") {
 }
 
 publishing {
+    repositories {
+        maven {
+            name = "OSSRH"
+            url = uri("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/")
+
+            credentials {
+                username = properties["ussrhUsername"] as String
+                password = properties["ussrhPassword"] as String
+            }
+        }
+    }
+
     publications {
         create<MavenPublication>(repository) {
             from(components["kotlin"])
@@ -71,6 +83,7 @@ publishing {
             pom {
                 name.set("$group:$repository")
                 description.set("Data generation dsl for Kotlin")
+                url.set("https://$github")
 
                 developers {
                     developer {
@@ -98,16 +111,6 @@ publishing {
                     system.set("GitHub")
                     url.set("https://$github/issues")
                 }
-            }
-        }
-    }
-
-    repositories {
-        mavenCentral {
-            url = uri("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/")
-            credentials {
-                username = properties["ussrhUsername"] as String
-                password = properties["ussrhPassword"] as String
             }
         }
     }
