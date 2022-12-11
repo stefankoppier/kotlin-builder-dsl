@@ -17,7 +17,7 @@ plugins {
     alias(libraries.plugins.dokka)
 }
 
-group = "com.github.stefankoppier"
+group = "io.github.stefankoppier"
 version = "0.0.1"
 
 dependencies {
