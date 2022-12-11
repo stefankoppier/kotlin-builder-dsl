@@ -23,6 +23,15 @@ jobs:
           java-version: '11'
           distribution: 'temurin'
 
+      - name: Set up gradle.properties
+        env:
+          GRADLE_PROPERTIES: ${{secrets.GRADLE_PROPERTIES }}
+        shell: bash
+        run: |
+          mkdir -p ~/.gradle/
+          echo "GRADLE_USER_HOME=${HOME}/.gradle" >> $GITHUB_ENV
+          echo "${GRADLE_PROPERTIES}" > ~/.gradle/gradle.properties
+
       - name: Build
         uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
         with:
