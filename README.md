@@ -1,5 +1,5 @@
 ![Coverage](.github/badges/jacoco.svg) 
-[![[Maven]](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Frepo1.maven.org%2Fmaven2%2Fio%2Fgithub%2Fstefankoppier%2Fkotlin-builder-dsl%2Fmaven-metadata.xml&versionPrefix=0.0.1)](https://mvnrepository.com/artifact/io-stefankoppier/kotlin-builder-dsl)
+[![[Maven]](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Frepo1.maven.org%2Fmaven2%2Fio%2Fgithub%2Fstefankoppier%2Fkotlin-builder-dsl%2Fmaven-metadata.xml)](https://mvnrepository.com/artifact/io-stefankoppier/kotlin-builder-dsl)
 
 # Kotlin Builder DSL
 This library provides a domain-specific language (DSL) to build data for different data types.
@@ -14,6 +14,7 @@ The data types that are included are
 | Double           | &check;            |                                                                                           |
 | Boolean          | &check;            |                                                                                           |
 | String           | &check;            |                                                                                           |
+| Uri              |                    |                                                                                           |
 | BigDecimal       |                    |                                                                                           |
 | LocalDateBuilder |                    |                                                                                           |
 | OffsetDateTime   |                    |                                                                                           |

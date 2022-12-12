@@ -24,7 +24,7 @@ class StringBuilderTest {
 
     @Test
     fun `format of valid pattern`() {
-        val regex = "[aAzZ]+"
+        val regex = "[azAZ]+"
         assertTrue { StringBuilder().format(regex)().matches(Regex(regex)) }
     }
 
