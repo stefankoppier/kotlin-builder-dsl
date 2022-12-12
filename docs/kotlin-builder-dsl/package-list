@@ -82,6 +82,12 @@ $dokka.location:io.github.stefankoppier.builder.dsl/OffsetDateTimeBuilder///Poin
 $dokka.location:io.github.stefankoppier.builder.dsl/OffsetDateTimeBuilder/OffsetDateTimeBuilder/#io.github.stefankoppier.builder.dsl.Faker/PointingToDeclaration/kotlin-builder-dsl/io.github.stefankoppier.builder.dsl/-offset-date-time-builder/-offset-date-time-builder.html
 $dokka.location:io.github.stefankoppier.builder.dsl/OffsetDateTimeBuilder/constant/#java.time.OffsetDateTime/PointingToDeclaration/kotlin-builder-dsl/io.github.stefankoppier.builder.dsl/-offset-date-time-builder/constant.html
 $dokka.location:io.github.stefankoppier.builder.dsl/OffsetDateTimeBuilder/invoke/#/PointingToDeclaration/kotlin-builder-dsl/io.github.stefankoppier.builder.dsl/-offset-date-time-builder/invoke.html
+$dokka.location:io.github.stefankoppier.builder.dsl/URIBuilder///PointingToDeclaration/kotlin-builder-dsl/io.github.stefankoppier.builder.dsl/-u-r-i-builder/index.html
+$dokka.location:io.github.stefankoppier.builder.dsl/URIBuilder/URIBuilder/#io.github.stefankoppier.builder.dsl.Faker/PointingToDeclaration/kotlin-builder-dsl/io.github.stefankoppier.builder.dsl/-u-r-i-builder/-u-r-i-builder.html
+$dokka.location:io.github.stefankoppier.builder.dsl/URIBuilder/constant/#java.net.URI/PointingToDeclaration/kotlin-builder-dsl/io.github.stefankoppier.builder.dsl/-u-r-i-builder/constant.html
+$dokka.location:io.github.stefankoppier.builder.dsl/URIBuilder/invoke/#/PointingToDeclaration/kotlin-builder-dsl/io.github.stefankoppier.builder.dsl/-u-r-i-builder/invoke.html
+$dokka.location:io.github.stefankoppier.builder.dsl/URIBuilder/protocol/#/PointingToDeclaration/kotlin-builder-dsl/io.github.stefankoppier.builder.dsl/-u-r-i-builder/protocol.html
+$dokka.location:io.github.stefankoppier.builder.dsl/URIBuilder/protocol/#kotlin.String/PointingToDeclaration/kotlin-builder-dsl/io.github.stefankoppier.builder.dsl/-u-r-i-builder/protocol.html
 io.github.stefankoppier.builder.dsl
 io.github.stefankoppier.builder.dsl.containers
 io.github.stefankoppier.builder.dsl.primitives
