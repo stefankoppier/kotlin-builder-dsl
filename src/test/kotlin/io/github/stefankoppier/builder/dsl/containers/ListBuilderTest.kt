@@ -23,4 +23,10 @@ class ListBuilderTest {
         val result = ListBuilder(IntBuilder()).between(3, 3)()
         assertEquals(3, result.size)
     }
+
+    @Test
+    fun constant() {
+        val result = ListBuilder(IntBuilder()).constant(listOf(1, 2, 3))()
+        assertEquals(listOf(1, 2, 3), result)
+    }
 }

@@ -27,6 +27,10 @@ B : BuilderDsl<E> {
      * @return A new [List].
      */
     override operator fun invoke(): List<E> {
+        if (constant != null) {
+            return constant!!
+        }
+
         val size = 0 until faker.int(min, max)
         return (size - 1).fold(mutableListOf(factory())) { acc, _ -> acc with this.factory.invoke() }
     }
