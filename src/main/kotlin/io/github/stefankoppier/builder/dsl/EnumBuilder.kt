@@ -14,7 +14,7 @@ package io.github.stefankoppier.builder.dsl
  *
  * @param E The enum type.
  */
-abstract class EnumBuilder<E : Enum<E>>(val faker: Faker = Faker()) : BuilderDsl<E> {
+abstract class EnumBuilder<E : Enum<E>, B : EnumBuilder<E, B>>(val faker: Faker = Faker()) : BuilderDsl<E> {
 
     private var constant: E? = null
 
@@ -42,9 +42,9 @@ abstract class EnumBuilder<E : Enum<E>>(val faker: Faker = Faker()) : BuilderDsl
      *
      * @return The DSL itself.
      */
-    fun constant(value: E): EnumBuilder<E> {
+    fun constant(value: E): B {
         this.constant = value
-        return this
+        return this as B
     }
 
     /**
@@ -54,8 +54,8 @@ abstract class EnumBuilder<E : Enum<E>>(val faker: Faker = Faker()) : BuilderDsl
      *
      * @return The DSL itself.
      */
-    fun filter(predicate: (E) -> Boolean): EnumBuilder<E> {
+    fun filter(predicate: (E) -> Boolean): B {
         this.filter = predicate
-        return this
+        return this as B
     }
 }

@@ -8,7 +8,7 @@ import org.mockito.kotlin.whenever
 
 class EnumBuilderTest {
 
-    private class TestEnumBuilder(faker: Faker) : EnumBuilder<DayOfWeek>(faker) {
+    private class TestEnumBuilder(faker: Faker) : EnumBuilder<DayOfWeek, TestEnumBuilder>(faker) {
         override fun allValues(): Array<DayOfWeek> {
             return DayOfWeek.values()
         }
