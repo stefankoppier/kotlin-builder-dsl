@@ -18,7 +18,6 @@ class Faker(private val random: Random = Random.Default) {
      *
      * @param min The (inclusive) minimum value.
      * @param max The (exclusive) maximum value.
-     *
      * @return A random [Byte] `r` such that `min <= r < max`.
      */
     fun byte(min: Byte = Byte.MIN_VALUE, max: Byte = Byte.MAX_VALUE): Byte {
@@ -30,7 +29,6 @@ class Faker(private val random: Random = Random.Default) {
      *
      * @param min The (inclusive) minimum value.
      * @param max The (exclusive) maximum value.
-     *
      * @return A random [Int] `r` such that `min <= r < max`.
      */
     fun int(min: Int = Int.MIN_VALUE, max: Int = Int.MAX_VALUE): Int {
@@ -42,7 +40,6 @@ class Faker(private val random: Random = Random.Default) {
      *
      * @param min The (inclusive) minimum value.
      * @param max The (exclusive) maximum value.
-     *
      * @return A random [Long] `r` such that `min <= r < max`.
      */
     fun long(min: Long = Long.MIN_VALUE, max: Long = Long.MAX_VALUE): Long {
@@ -63,7 +60,6 @@ class Faker(private val random: Random = Random.Default) {
      *
      * @param min The (inclusive) minimum value.
      * @param max The (exclusive) maximum value.
-     *
      * @return A random [Float] `r` such that `min <= r < max`.
      */
     fun float(min: Float = Float.MIN_VALUE, max: Float = Float.MAX_VALUE): Float {
@@ -75,7 +71,6 @@ class Faker(private val random: Random = Random.Default) {
      *
      * @param min The (inclusive) minimum value.
      * @param max The (exclusive) maximum value.
-     *
      * @return A random [Double] `r` such that `min <= r < max`.
      */
     fun double(min: Double = Double.MIN_VALUE, max: Double = Double.MAX_VALUE): Double {
@@ -86,7 +81,6 @@ class Faker(private val random: Random = Random.Default) {
      * Generate a random [Char] using the provided random number generator.
      *
      * @param pool The possible characters to generate from.
-     *
      * @return A random [Char] `r` such that `r in pool`.
      */
     fun char(pool: List<Char> = ('a'..'z') + ('A'..'Z') + ('0'..'9') + ' '): Char {
@@ -98,7 +92,6 @@ class Faker(private val random: Random = Random.Default) {
      *
      * @param min The (inclusive) minimum length.
      * @param max The (exclusive) maximum length.
-     *
      * @return A random alphanumeric [String] `r` such that `min <= r.length < max`.
      */
     fun string(min: Int = 0, max: Int = 24): String {
@@ -112,7 +105,6 @@ class Faker(private val random: Random = Random.Default) {
      * Generate a random enum [E] using the provided random number generator.
      *
      * @param predicate Filter values for which the predicate does not hold.
-     *
      * @return A random enum <E> `r` such that `predicate(r) == false`.
      */
     inline fun <reified E : Enum<E>> enum(predicate: (E) -> Boolean = { true }): E {
@@ -144,7 +136,7 @@ class Faker(private val random: Random = Random.Default) {
      * Generate a random UTC [OffsetDateTime] using the provided random number generator.
      *
      * @return A random [OffsetDateTime] `r` with date component `d` such that `LocalDate.EPOCH <= d <
-     * LocalDate.of(2050, 12, 31)`.
+     *   LocalDate.of(2050, 12, 31)`.
      */
     fun offsetDateTime(): OffsetDateTime {
         return OffsetDateTime.of(localDate(), localTime(), ZoneOffset.UTC)

@@ -16,7 +16,6 @@ class IntGenerator(faker: Faker = Faker()) : NumberGenerator<Int, IntGenerator>(
  * For example: `Int.of { constant(1) }`
  *
  * @param transform The instructions.
- *
  * @return A new [Int].
  */
 fun Int.Companion.of(transform: IntGenerator.() -> IntGenerator = { IntGenerator() }): Int {

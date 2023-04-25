@@ -1,5 +1,3 @@
-import com.diffplug.gradle.spotless.SpotlessApply
-
 plugins {
     id("jacoco")
     id("maven-publish")
@@ -23,12 +21,12 @@ allprojects {
         }
     }
 
-    tasks.withType<SpotlessApply> {
-        spotless {
-            kotlin {
-                ktfmt().dropboxStyle().configure { options ->
-                    options.setMaxWidth(120)
-                }
+    apply(plugin = "com.diffplug.spotless")
+    spotless {
+        kotlin {
+            ktfmt().dropboxStyle().configure { options ->
+                targetExclude("build/generated/**/*.*")
+                options.setMaxWidth(120)
             }
         }
     }

@@ -5,7 +5,6 @@ val github = "github.com/$organization/$repository"
 plugins {
     id("maven-publish")
     alias(libs.plugins.kotlin)
-    alias(libs.plugins.spotless)
 }
 
 dependencies {

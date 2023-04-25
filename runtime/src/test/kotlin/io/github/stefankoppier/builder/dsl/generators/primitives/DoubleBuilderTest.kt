@@ -1,8 +1,6 @@
 package io.github.stefankoppier.builder.dsl.generators.primitives
 
 import io.github.stefankoppier.builder.dsl.Faker
-import io.github.stefankoppier.builder.dsl.generators.primitives.DoubleGenerator
-import io.github.stefankoppier.builder.dsl.generators.primitives.of
 import kotlin.test.assertEquals
 import org.junit.jupiter.api.Test
 import org.mockito.kotlin.mock

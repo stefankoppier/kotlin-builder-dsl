@@ -16,7 +16,6 @@ class FloatGenerator(faker: Faker = Faker()) : NumberGenerator<Float, FloatGener
  * For example: `Float.of { constant(1.0f) }`
  *
  * @param transform The instructions.
- *
  * @return A new [Float].
  */
 fun Float.Companion.of(transform: FloatGenerator.() -> FloatGenerator = { FloatGenerator() }): Float {

@@ -16,7 +16,6 @@ class LongGenerator(faker: Faker = Faker()) : NumberGenerator<Long, LongGenerato
  * For example: `Long.of { constant(1L) }`
  *
  * @param transform The instructions.
- *
  * @return A new [Long].
  */
 fun Long.Companion.of(transform: LongGenerator.() -> LongGenerator = { LongGenerator() }): Long {

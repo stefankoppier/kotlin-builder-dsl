@@ -1,7 +1,7 @@
 package io.github.stefankoppier.builder.dsl.containers
 
-import io.github.stefankoppier.builder.dsl.BuilderDsl
 import io.github.stefankoppier.builder.dsl.Faker
+import io.github.stefankoppier.builder.dsl.generators.GeneratorDsl
 
 /**
  * DSL for building nullable objects using the given [Faker] and element factory [B].
@@ -10,10 +10,12 @@ import io.github.stefankoppier.builder.dsl.Faker
  * ```kotlin
  * NullableBuilder(IntBuilder().constant(1))()
  * ```
+ *
  * will result in nullable [T] which is either the constant value `1` or `null` where each option having a probability
  * of 50%.
  */
-class NullableBuilder<T, B>(private val factory: B, faker: Faker = Faker()) : BuilderDsl<T?> where B : BuilderDsl<T> {
+class NullableBuilder<T, B>(private val factory: B, faker: Faker = Faker()) : GeneratorDsl<T?> where
+B : GeneratorDsl<T> {
 
     private var isNull = faker.boolean()
 

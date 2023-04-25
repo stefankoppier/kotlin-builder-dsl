@@ -27,7 +27,6 @@ class URIGenerator(private val faker: Faker = Faker()) : GeneratorDsl<URI> {
      * Instruct the builder to generate a constant.
      *
      * @param value The value to generate.
-     *
      * @return The DSL itself.
      */
     fun constant(value: URI): URIGenerator {
@@ -39,7 +38,6 @@ class URIGenerator(private val faker: Faker = Faker()) : GeneratorDsl<URI> {
      * Instruct the builder to use a specific protocol when generating a random value.
      *
      * @param value The protocol for which to generate an [URI] for.
-     *
      * @return The DSL itself.
      */
     fun protocol(value: String): URIGenerator {

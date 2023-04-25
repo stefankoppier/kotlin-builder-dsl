@@ -16,7 +16,6 @@ class ShortGenerator(faker: Faker = Faker()) : NumberGenerator<Short, ShortGener
  * For example: `Short.of { constant(1) }`
  *
  * @param transform The instructions.
- *
  * @return A new [Short].
  */
 fun Short.Companion.of(transform: ShortGenerator.() -> ShortGenerator = { ShortGenerator() }): Short {

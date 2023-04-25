@@ -9,4 +9,5 @@ class SimpleClass(
     val long: Long,
     val boolean: Boolean,
     val char: Char,
+    val enum: SimpleEnum,
 )

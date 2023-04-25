@@ -1,7 +1,7 @@
 package io.github.stefankoppier.builder.dsl.containers
 
-import io.github.stefankoppier.builder.dsl.BuilderDsl
 import io.github.stefankoppier.builder.dsl.Faker
+import io.github.stefankoppier.builder.dsl.generators.GeneratorDsl
 
 /**
  * DSL for building [List] objects using the given [Faker] and element factory [B].
@@ -10,10 +10,11 @@ import io.github.stefankoppier.builder.dsl.Faker
  * ```kotlin
  * ListBuilder(IntBuilder().constant(1))()
  * ```
+ *
  * will result in a list of random size between `0` and `10` consisting of `1`'s.
  */
-class ListBuilder<E, B>(private val factory: B, private val faker: Faker = Faker()) : BuilderDsl<List<E>> where
-B : BuilderDsl<E> {
+class ListBuilder<E, B>(private val factory: B, private val faker: Faker = Faker()) : GeneratorDsl<List<E>> where
+B : GeneratorDsl<E> {
 
     private var constant: List<E>? = null
 
@@ -39,7 +40,6 @@ B : BuilderDsl<E> {
      * Instruct the builder to generate a constant.
      *
      * @param value The value to generate.
-     *
      * @return The DSL itself.
      */
     fun constant(value: List<E>): ListBuilder<E, B> {
@@ -52,9 +52,8 @@ B : BuilderDsl<E> {
      *
      * @param min The (inclusive) minimum value.
      * @param max The (exclusive) maximum value.
-     *
-     * @throws IllegalArgumentException When [min] is negative, [max] is negative, or [min] is less than [max].
      * @return The DSL itself.
+     * @throws IllegalArgumentException When [min] is negative, [max] is negative, or [min] is less than [max].
      */
     fun between(min: Int, max: Int): ListBuilder<E, B> {
         require(min <= max) { "min must be less than or equal to max, instead min was '$min' and max was '$max'" }
@@ -66,9 +65,8 @@ B : BuilderDsl<E> {
      * Instruct the builder to generate a list of size greater or equal to [max].
      *
      * @param min The (inclusive) minimum value.
-     *
-     * @throws IllegalArgumentException When [min] is negative.
      * @return The DSL itself.
+     * @throws IllegalArgumentException When [min] is negative.
      */
     fun min(min: Int): ListBuilder<E, B> {
         require(min >= 0) { "min must be positive, instead '$min' was given" }
@@ -81,9 +79,8 @@ B : BuilderDsl<E> {
      * Instruct the builder to generate a list of size less than [max].
      *
      * @param max The (exclusive) maximum value.
-     *
-     * @throws IllegalArgumentException When [max] is negative.
      * @return The DSL itself.
+     * @throws IllegalArgumentException When [max] is negative.
      */
     fun max(max: Int): ListBuilder<E, B> {
         require(max >= 0) { "max must be positive, instead '$max' was given" }

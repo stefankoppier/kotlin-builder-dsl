@@ -1,11 +1,11 @@
 package io.github.stefankoppier.builder.dsl.generators.primitives
 
-import io.github.stefankoppier.builder.dsl.BuilderDsl
 import io.github.stefankoppier.builder.dsl.Faker
+import io.github.stefankoppier.builder.dsl.generators.GeneratorDsl
 
 @Suppress("UNCHECKED_CAST")
 abstract class NumberGenerator<T : Number, B : NumberGenerator<T, B>>(protected val faker: Faker = Faker()) :
-    BuilderDsl<T> {
+    GeneratorDsl<T> {
 
     private var constant: T? = null
 
@@ -21,7 +21,6 @@ abstract class NumberGenerator<T : Number, B : NumberGenerator<T, B>>(protected 
      * Instruct the builder to generate a constant.
      *
      * @param value The value to generate.
-     *
      * @return The DSL itself.
      */
     fun constant(value: T): B {
@@ -34,9 +33,8 @@ abstract class NumberGenerator<T : Number, B : NumberGenerator<T, B>>(protected 
      *
      * @param min The (inclusive) minimum value.
      * @param max The (exclusive) maximum value.
-     *
-     * @throws IllegalArgumentException When [min] is less than [max].
      * @return The DSL itself.
+     * @throws IllegalArgumentException When [min] is less than [max].
      */
     fun between(min: T, max: T): B {
         require(min.toDouble() <= max.toDouble()) {
@@ -50,7 +48,6 @@ abstract class NumberGenerator<T : Number, B : NumberGenerator<T, B>>(protected 
      * Instruct the builder to generate a value greater or equal to [min].
      *
      * @param min The (inclusive) minimum value.
-     *
      * @return The DSL itself.
      */
     fun min(min: T): B {
@@ -62,7 +59,6 @@ abstract class NumberGenerator<T : Number, B : NumberGenerator<T, B>>(protected 
      * Instruct the builder to generate a value less than [max].
      *
      * @param max The (exclusive) maximum value.
-     *
      * @return The DSL itself.
      */
     fun max(max: T): B {

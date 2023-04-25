@@ -21,7 +21,6 @@ class OffsetDateTimeGenerator(private val faker: Faker = Faker()) : GeneratorDsl
      * Instruct the builder to generate a constant.
      *
      * @param value The value to generate.
-     *
      * @return The DSL itself.
      */
     fun constant(value: OffsetDateTime): OffsetDateTimeGenerator {

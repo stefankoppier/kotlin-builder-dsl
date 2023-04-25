@@ -16,7 +16,6 @@ class DoubleGenerator(faker: Faker = Faker()) : NumberGenerator<Double, DoubleGe
  * For example: `Double.of { constant(1.0) }`
  *
  * @param transform The instructions.
- *
  * @return A new [Double].
  */
 fun Double.Companion.of(transform: DoubleGenerator.() -> DoubleGenerator = { DoubleGenerator() }): Double {

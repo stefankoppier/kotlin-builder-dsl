@@ -1,12 +1,11 @@
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
-import kotlin.test.assertEquals
 
 class SimpleClassTest {
 
     @Test
     fun test() {
-        val fixture = SimpleClass {
+        val fixture = simpleClass {
             string { constant("test") }
             byte { constant(Byte.MAX_VALUE) }
             short { constant(Short.MAX_VALUE) }

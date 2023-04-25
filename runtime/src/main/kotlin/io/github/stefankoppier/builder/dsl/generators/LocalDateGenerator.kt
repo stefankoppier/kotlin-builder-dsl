@@ -21,7 +21,6 @@ class LocalDateGenerator(private val faker: Faker = Faker()) : GeneratorDsl<Loca
      * Instruct the builder to generate a constant.
      *
      * @param value The value to generate.
-     *
      * @return The DSL itself.
      */
     fun constant(value: LocalDate): LocalDateGenerator {

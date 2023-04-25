@@ -21,7 +21,6 @@ class BooleanGenerator(private val faker: Faker = Faker()) : GeneratorDsl<Boolea
      * Instruct the builder to generate a constant.
      *
      * @param value The value to generate.
-     *
      * @return The DSL itself.
      */
     fun constant(value: Boolean): BooleanGenerator {
@@ -36,7 +35,6 @@ class BooleanGenerator(private val faker: Faker = Faker()) : GeneratorDsl<Boolea
  * For example: `Boolean.of { constant(true) }`
  *
  * @param transform The instructions.
- *
  * @return A new [Boolean].
  */
 fun Boolean.Companion.of(transform: BooleanGenerator.() -> BooleanGenerator = { BooleanGenerator() }): Boolean {

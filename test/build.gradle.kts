@@ -14,7 +14,7 @@ dependencies {
 
 kotlin {
     sourceSets.main {
-        kotlin.srcDir("build/generated/ksp/main/kotlin")
+        kotlin.srcDir("$buildDir/generated/ksp/main/kotlin")
     }
 }
 

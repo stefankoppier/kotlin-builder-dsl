@@ -1,8 +1,6 @@
 package io.github.stefankoppier.builder.dsl.generators.primitives
 
 import io.github.stefankoppier.builder.dsl.Faker
-import io.github.stefankoppier.builder.dsl.generators.primitives.IntGenerator
-import io.github.stefankoppier.builder.dsl.generators.primitives.of
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue

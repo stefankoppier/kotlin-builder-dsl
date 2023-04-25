@@ -42,7 +42,6 @@ abstract class EnumGenerator<E : Enum<E>, B : EnumGenerator<E, B>>(val faker: Fa
      * Instruct the builder to generate a constant.
      *
      * @param value The value to generate.
-     *
      * @return The DSL itself.
      */
     fun constant(value: E): B {
@@ -54,7 +53,6 @@ abstract class EnumGenerator<E : Enum<E>, B : EnumGenerator<E, B>>(val faker: Fa
      * Instruct the builder to generate an enum that satisfies the [predicate].
      *
      * @param predicate Filter values for which the predicate does not hold.
-     *
      * @return The DSL itself.
      */
     fun filter(predicate: (E) -> Boolean): B {

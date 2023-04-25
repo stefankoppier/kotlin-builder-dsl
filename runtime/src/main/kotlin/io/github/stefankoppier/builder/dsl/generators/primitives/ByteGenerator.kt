@@ -16,7 +16,6 @@ class ByteGenerator(faker: Faker = Faker()) : NumberGenerator<Byte, ByteGenerato
  * For example: `Int.of { constant(1) }`
  *
  * @param transform The instructions.
- *
  * @return A new [Int].
  */
 fun Byte.Companion.of(transform: ByteGenerator.() -> ByteGenerator = { ByteGenerator() }): Byte {
