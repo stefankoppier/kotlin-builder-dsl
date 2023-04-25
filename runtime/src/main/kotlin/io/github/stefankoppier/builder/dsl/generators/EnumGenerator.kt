@@ -1,4 +1,7 @@
-package io.github.stefankoppier.builder.dsl
+package io.github.stefankoppier.builder.dsl.generators
+
+import io.github.stefankoppier.builder.dsl.Faker
+
 /**
  * Abstract DSL for building [Enum] objects using the given [Faker].
  *
@@ -14,7 +17,7 @@ package io.github.stefankoppier.builder.dsl
  *
  * @param E The enum type.
  */
-abstract class EnumGenerator<E : Enum<E>, B : EnumGenerator<E, B>>(val faker: Faker = Faker()) : BuilderDsl<E> {
+abstract class EnumGenerator<E : Enum<E>, B : EnumGenerator<E, B>>(val faker: Faker = Faker()) : GeneratorDsl<E> {
 
     private var constant: E? = null
 

@@ -1,4 +1,4 @@
-package io.github.stefankoppier.builder.dsl.primitives
+package io.github.stefankoppier.builder.dsl.generators.primitives
 
 import io.github.stefankoppier.builder.dsl.BuilderDsl
 import io.github.stefankoppier.builder.dsl.Faker

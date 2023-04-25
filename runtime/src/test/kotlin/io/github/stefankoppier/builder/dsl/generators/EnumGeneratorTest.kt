@@ -1,5 +1,6 @@
-package io.github.stefankoppier.builder.dsl
+package io.github.stefankoppier.builder.dsl.generators
 
+import io.github.stefankoppier.builder.dsl.Faker
 import java.time.DayOfWeek
 import kotlin.test.assertEquals
 import org.junit.jupiter.api.Test

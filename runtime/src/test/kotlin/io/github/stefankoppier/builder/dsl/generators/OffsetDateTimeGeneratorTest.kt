@@ -1,5 +1,6 @@
-package io.github.stefankoppier.builder.dsl
+package io.github.stefankoppier.builder.dsl.generators
 
+import io.github.stefankoppier.builder.dsl.Faker
 import java.time.LocalDate
 import java.time.LocalTime
 import java.time.OffsetDateTime
@@ -9,7 +10,7 @@ import org.junit.jupiter.api.Test
 import org.mockito.kotlin.mock
 import org.mockito.kotlin.whenever
 
-class OffsetDateTimeBuilderTest {
+class OffsetDateTimeGeneratorTest {
 
     @Test
     fun random() {
@@ -18,12 +19,12 @@ class OffsetDateTimeBuilderTest {
         val expected = OffsetDateTime.of(LocalDate.EPOCH, LocalTime.NOON, ZoneOffset.UTC)
         whenever(faker.offsetDateTime()).thenReturn(expected)
 
-        assertEquals(expected, OffsetDateTimeBuilder(faker)())
+        assertEquals(expected, OffsetDateTimeGenerator(faker)())
     }
 
     @Test
     fun constant() {
         val expected = OffsetDateTime.of(LocalDate.EPOCH, LocalTime.NOON, ZoneOffset.UTC)
-        assertEquals(expected, OffsetDateTimeBuilder().constant(expected)())
+        assertEquals(expected, OffsetDateTimeGenerator().constant(expected)())
     }
 }

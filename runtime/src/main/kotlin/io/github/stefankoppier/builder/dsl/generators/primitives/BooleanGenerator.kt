@@ -1,10 +1,10 @@
-package io.github.stefankoppier.builder.dsl.primitives
+package io.github.stefankoppier.builder.dsl.generators.primitives
 
-import io.github.stefankoppier.builder.dsl.BuilderDsl
 import io.github.stefankoppier.builder.dsl.Faker
+import io.github.stefankoppier.builder.dsl.generators.GeneratorDsl
 
 /** DSL for building [Boolean] objects using the given [Faker]. */
-class BooleanGenerator(private val faker: Faker = Faker()) : BuilderDsl<Boolean> {
+class BooleanGenerator(private val faker: Faker = Faker()) : GeneratorDsl<Boolean> {
 
     private var constant: Boolean? = null
 

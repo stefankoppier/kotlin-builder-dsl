@@ -1,9 +1,10 @@
-package io.github.stefankoppier.builder.dsl
+package io.github.stefankoppier.builder.dsl.generators
 
+import io.github.stefankoppier.builder.dsl.Faker
 import java.time.OffsetDateTime
 
 /** DSL for building [OffsetDateTime] objects using the given [Faker]. */
-class OffsetDateTimeBuilder(private val faker: Faker = Faker()) : BuilderDsl<OffsetDateTime> {
+class OffsetDateTimeGenerator(private val faker: Faker = Faker()) : GeneratorDsl<OffsetDateTime> {
 
     private var constant: OffsetDateTime? = null
 
@@ -23,7 +24,7 @@ class OffsetDateTimeBuilder(private val faker: Faker = Faker()) : BuilderDsl<Off
      *
      * @return The DSL itself.
      */
-    fun constant(value: OffsetDateTime): OffsetDateTimeBuilder {
+    fun constant(value: OffsetDateTime): OffsetDateTimeGenerator {
         this.constant = value
         return this
     }

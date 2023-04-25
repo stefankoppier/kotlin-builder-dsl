@@ -9,6 +9,7 @@ dependencies {
     implementation(project(":runtime"))
 
     testImplementation(libs.kotlin.test)
+    testImplementation(libs.assertj.core)
 }
 
 kotlin {

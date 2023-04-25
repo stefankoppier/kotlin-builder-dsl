@@ -1,6 +1,7 @@
-package io.github.stefankoppier.builder.dsl
+package io.github.stefankoppier.builder.dsl.generators
 
-import io.github.stefankoppier.builder.dsl.primitives.NumberGenerator
+import io.github.stefankoppier.builder.dsl.Faker
+import io.github.stefankoppier.builder.dsl.generators.primitives.NumberGenerator
 import java.math.BigDecimal
 
 /** DSL for building [BigDecimal] objects using the given [Faker]. */

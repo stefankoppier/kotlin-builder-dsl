@@ -12,6 +12,7 @@ kotlinpoet = { module = "com.squareup:kotlinpoet", version.ref = "kotlinpoet"  }
 kotlinpoet-ksp = { module = "com.squareup:kotlinpoet-ksp", version.ref = "kotlinpoet" }
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test" }
 mockito-kotlin = { module = "org.mockito.kotlin:mockito-kotlin", version = "4.1.0" }
+assertj-core = { module = "org.assertj:assertj-core", version = "3.24.2" }
 
 [plugins]
 kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }

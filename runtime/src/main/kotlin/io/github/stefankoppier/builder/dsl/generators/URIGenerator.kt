@@ -1,10 +1,11 @@
-package io.github.stefankoppier.builder.dsl
+package io.github.stefankoppier.builder.dsl.generators
 
-import io.github.stefankoppier.builder.dsl.primitives.StringGenerator
+import io.github.stefankoppier.builder.dsl.Faker
+import io.github.stefankoppier.builder.dsl.generators.primitives.StringGenerator
 import java.net.URI
 
 /** DSL for building [URI] objects using the given [Faker]. */
-class URIBuilder(private val faker: Faker = Faker()) : BuilderDsl<URI> {
+class URIGenerator(private val faker: Faker = Faker()) : GeneratorDsl<URI> {
 
     /** The protocol for which to generate an [URI] for. */
     var protocol = "https"
@@ -29,7 +30,7 @@ class URIBuilder(private val faker: Faker = Faker()) : BuilderDsl<URI> {
      *
      * @return The DSL itself.
      */
-    fun constant(value: URI): URIBuilder {
+    fun constant(value: URI): URIGenerator {
         this.constant = value
         return this
     }
@@ -41,7 +42,7 @@ class URIBuilder(private val faker: Faker = Faker()) : BuilderDsl<URI> {
      *
      * @return The DSL itself.
      */
-    fun protocol(value: String): URIBuilder {
+    fun protocol(value: String): URIGenerator {
         this.protocol = value
         return this
     }

@@ -1,9 +1,10 @@
-package io.github.stefankoppier.builder.dsl
+package io.github.stefankoppier.builder.dsl.generators
 
+import io.github.stefankoppier.builder.dsl.Faker
 import java.time.LocalDate
 
 /** DSL for building [LocalDate] objects using the given [Faker]. */
-class LocalDateBuilder(private val faker: Faker = Faker()) : BuilderDsl<LocalDate> {
+class LocalDateGenerator(private val faker: Faker = Faker()) : GeneratorDsl<LocalDate> {
 
     private var constant: LocalDate? = null
 
@@ -23,7 +24,7 @@ class LocalDateBuilder(private val faker: Faker = Faker()) : BuilderDsl<LocalDat
      *
      * @return The DSL itself.
      */
-    fun constant(value: LocalDate): LocalDateBuilder {
+    fun constant(value: LocalDate): LocalDateGenerator {
         this.constant = value
         return this
     }

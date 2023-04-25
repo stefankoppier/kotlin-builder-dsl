@@ -1,7 +1,7 @@
 package io.github.stefankoppier.builder.dsl.containers
 
 import io.github.stefankoppier.builder.dsl.Faker
-import io.github.stefankoppier.builder.dsl.primitives.IntGenerator
+import io.github.stefankoppier.builder.dsl.generators.primitives.IntGenerator
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import org.mockito.kotlin.mock

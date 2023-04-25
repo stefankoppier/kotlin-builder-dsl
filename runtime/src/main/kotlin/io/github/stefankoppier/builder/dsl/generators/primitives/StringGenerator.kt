@@ -1,4 +1,4 @@
-package io.github.stefankoppier.builder.dsl.primitives
+package io.github.stefankoppier.builder.dsl.generators.primitives
 
 import com.github.curiousoddman.rgxgen.RgxGen
 import io.github.stefankoppier.builder.dsl.BuilderDsl
