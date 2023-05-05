@@ -1,27 +1,22 @@
 package io.github.stefankoppier.builder.dsl.generators.primitives
 
 import io.github.stefankoppier.builder.dsl.Faker
+import kotlin.test.Test
 import kotlin.test.assertEquals
-import org.junit.jupiter.api.Test
 import org.mockito.kotlin.mock
 import org.mockito.kotlin.whenever
 
-class FloatBuilderDslTest {
+class CharGeneratorTest {
 
     @Test
     fun random() {
         val faker = mock<Faker>()
-        whenever(faker.float()).thenReturn(1.0f)
-        assertEquals(1.0f, FloatGenerator(faker)())
+        whenever(faker.char()).thenReturn('a')
+        assertEquals('a', CharGenerator(faker)())
     }
 
     @Test
     fun constant() {
-        assertEquals(2.0f, FloatGenerator().constant(2.0f)())
-    }
-
-    @Test
-    fun of() {
-        assertEquals(3.0f, Float.of { constant(3.0f) })
+        assertEquals('b', CharGenerator().constant('b')())
     }
 }

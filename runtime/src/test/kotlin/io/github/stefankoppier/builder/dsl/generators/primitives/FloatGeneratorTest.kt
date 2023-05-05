@@ -6,22 +6,22 @@ import org.junit.jupiter.api.Test
 import org.mockito.kotlin.mock
 import org.mockito.kotlin.whenever
 
-class DoubleBuilderTest {
+class FloatGeneratorTest {
 
     @Test
     fun random() {
         val faker = mock<Faker>()
-        whenever(faker.double()).thenReturn(1.0)
-        assertEquals(1.0, DoubleGenerator(faker)())
+        whenever(faker.float()).thenReturn(1.0f)
+        assertEquals(1.0f, FloatGenerator(faker)())
     }
 
     @Test
     fun constant() {
-        assertEquals(2.0, DoubleGenerator().constant(2.0)())
+        assertEquals(2.0f, FloatGenerator().constant(2.0f)())
     }
 
     @Test
     fun of() {
-        assertEquals(3.0, Double.of { constant(3.0) })
+        assertEquals(3.0f, Float.of { constant(3.0f) })
     }
 }

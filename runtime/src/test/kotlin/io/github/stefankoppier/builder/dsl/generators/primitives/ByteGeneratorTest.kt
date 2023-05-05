@@ -8,32 +8,32 @@ import org.junit.jupiter.api.assertThrows
 import org.mockito.kotlin.mock
 import org.mockito.kotlin.whenever
 
-class IntBuilderTest {
+class ByteGeneratorTest {
 
     @Test
     fun random() {
         val faker = mock<Faker>()
-        whenever(faker.int()).thenReturn(1)
-        assertEquals(1, IntGenerator(faker)())
+        whenever(faker.byte()).thenReturn(1)
+        assertEquals(1, ByteGenerator(faker)())
     }
 
     @Test
     fun constant() {
-        assertEquals(2, IntGenerator().constant(2)())
+        assertEquals(2, ByteGenerator().constant(2)())
     }
 
     @Test
     fun `between 1 and 10`() {
-        assertTrue { Int.of { between(1, 10) } in (0..10) }
+        assertTrue { Byte.of { between(1, 10) } in (0..10) }
     }
 
     @Test
     fun `between 10 and 1`() {
-        assertThrows<IllegalArgumentException> { Int.of { between(10, 1) } }
+        assertThrows<IllegalArgumentException> { Byte.of { between(10, 1) } }
     }
 
     @Test
     fun of() {
-        assertEquals(3, Int.of { constant(3) })
+        assertEquals(3, Byte.of { constant(3) })
     }
 }

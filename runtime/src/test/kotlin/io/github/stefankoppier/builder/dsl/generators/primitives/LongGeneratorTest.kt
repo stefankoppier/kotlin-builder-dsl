@@ -8,7 +8,7 @@ import org.junit.jupiter.api.assertThrows
 import org.mockito.kotlin.mock
 import org.mockito.kotlin.whenever
 
-class LongBuilderTest {
+class LongGeneratorTest {
 
     @Test
     fun random() {
