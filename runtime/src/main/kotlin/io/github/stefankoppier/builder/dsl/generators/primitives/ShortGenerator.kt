@@ -6,7 +6,7 @@ import io.github.stefankoppier.builder.dsl.Faker
 class ShortGenerator(faker: Faker = Faker()) : NumberGenerator<Short, ShortGenerator>(faker) {
 
     override fun random(min: Short?, max: Short?): Short {
-        return faker.int((min ?: Short.MIN_VALUE).toInt(), (max ?: Short.MAX_VALUE).toInt()).toShort()
+        return faker.short(min ?: Short.MIN_VALUE, max ?: Short.MAX_VALUE)
     }
 }
 

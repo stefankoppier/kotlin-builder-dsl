@@ -25,6 +25,17 @@ class Faker(private val random: Random = Random.Default) {
     }
 
     /**
+     * Generate a random [Short] using the provided random number generator.
+     *
+     * @param min The (inclusive) minimum value.
+     * @param max The (exclusive) maximum value.
+     * @return A random [Short] `r` such that `min <= r < max`.
+     */
+    fun short(min: Short = Short.MIN_VALUE, max: Short = Short.MAX_VALUE): Short {
+        return if (min == max) min else random.nextInt(min.toInt(), max.toInt()).toShort()
+    }
+
+    /**
      * Generate a random [Int] using the provided random number generator.
      *
      * @param min The (inclusive) minimum value.
