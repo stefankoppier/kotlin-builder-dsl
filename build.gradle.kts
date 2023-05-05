@@ -1,10 +1,16 @@
 plugins {
     id("jacoco")
+    id("jacoco-report-aggregation")
     id("maven-publish")
     id("signing")
     alias(libs.plugins.kotlin)
     alias(libs.plugins.spotless)
     alias(libs.plugins.dokka)
+}
+
+dependencies {
+    jacocoAggregation(project(":processor"))
+    jacocoAggregation(project(":runtime"))
 }
 
 allprojects {
@@ -30,4 +36,8 @@ allprojects {
             }
         }
     }
+}
+
+tasks.build {
+    dependsOn(tasks.named("testCodeCoverageReport"))
 }

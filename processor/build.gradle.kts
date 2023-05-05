@@ -3,6 +3,7 @@ val organization = "stefankoppier"
 val github = "github.com/$organization/$repository"
 
 plugins {
+    id("jacoco")
     id("maven-publish")
     alias(libs.plugins.kotlin)
 }
