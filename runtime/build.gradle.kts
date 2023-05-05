@@ -29,7 +29,7 @@ tasks.dokkaHtml.configure {
             reportUndocumented.set(false)
 
             sourceLink {
-                localDirectory.set(file("processor/src/main/kotlin"))
+                localDirectory.set(file("src/main/kotlin"))
                 remoteUrl.set(uri("https://$github/blob/master/src/main/kotlin").toURL())
                 remoteLineSuffix.set("#L")
             }

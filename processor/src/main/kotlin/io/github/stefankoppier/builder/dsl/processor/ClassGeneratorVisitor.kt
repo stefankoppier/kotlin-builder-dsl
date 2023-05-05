@@ -1,6 +1,5 @@
 package io.github.stefankoppier.builder.dsl.processor
 
-import BaseGeneratorVisitor
 import com.google.devtools.ksp.processing.CodeGenerator
 import com.google.devtools.ksp.processing.Dependencies
 import com.google.devtools.ksp.processing.KSPLogger

@@ -60,5 +60,5 @@ jobs:
       - name: Upload documentation
         uses: JamesIves/github-pages-deploy-action@v4.4.1
         with:
-          folder: build/dokka/html
+          folder: runtime/build/dokka/html
           target-folder: "docs"
