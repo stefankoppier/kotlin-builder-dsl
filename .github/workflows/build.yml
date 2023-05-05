@@ -1,8 +1,6 @@
 name: Build
 
-on:
-  push:
-    branches: ["main"]
+on: push
 
 permissions:
   contents: write
@@ -63,5 +61,4 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4.4.1
         with:
           folder: build/dokka/html
-          branch: main
           target-folder: "docs"
